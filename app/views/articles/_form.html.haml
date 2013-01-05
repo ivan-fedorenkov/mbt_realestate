@@ -1,10 +1,16 @@
 = form_for @article do |f|
 
-  = f.label :title
-  = f.text_field :title, :class => "input-xxlarge", :placeholder => "Input article title ..."
+  %p
+    = f.label :title
+    = f.text_field :title, :class => "input-xxlarge", :placeholder => "Input article title ..."
   
   = f.label :text
   = f.text_area :text, :class => "wysihtml5", :placeholder => "Input article text ..."
 
-  = f.submit :class => "btn btn-primary"
+  %p
+    = f.label :position
+    = f.text_field :position, :class => "input-mini" 
+
+  %p
+    = f.submit :class => "btn btn-primary"
 

@@ -11,13 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130105090905) do
+ActiveRecord::Schema.define(:version => 20130105202026) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "text"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "position",   :default => 0
   end
+
+  add_index "articles", ["position"], :name => "index_articles_on_position"
 
 end

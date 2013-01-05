@@ -7,6 +7,8 @@ module KnowsTheForms
         "title"
       when /Текст/
         "text" 
+      when /Позиция/
+        "position"
     end
   end
 end

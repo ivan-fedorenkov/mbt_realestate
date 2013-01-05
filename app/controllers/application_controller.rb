@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   
 private
   def get_articles_for_navbar
-    @articles_for_navbar = Article.all
+    @articles_for_navbar = Article.order(:position)
   end
 end
