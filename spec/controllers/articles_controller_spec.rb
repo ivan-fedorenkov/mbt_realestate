@@ -30,4 +30,20 @@ describe ArticlesController do
       end
     end
   end
+  
+  describe "show" do
+    before(:each) do
+      valid_article.save!
+      get :show, :id => valid_article.id
+    end
+    
+    it "should set the article variable" do
+      expect(assigns[:article]).to eql(valid_article)
+    end
+    
+    it "should render the show view" do
+      expect(response).to render_template("show")
+    end
+  end
+  
 end
