@@ -1,0 +1,4 @@
+%ul
+  - @articles.each do |article|
+    %li= link_to article_path(article), article.title 
+  

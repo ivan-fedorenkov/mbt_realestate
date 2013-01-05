@@ -1,13 +1,18 @@
+# language: ru
+
 @under_construction
 
-Feature: Article creation
-  In order to hold users on the web site and improve indexation by the search engines
-  Web site owner should be able to add a new articles
+Функционал: Создание статей
+  Для того чтобы упростить процесс добавления новых статических (текстовых) материалов на сайт
+  Администратор должен иметь возможность делать это через специальную форму
+
+Сценарий: Добавление новой статьи
   
-Scenario: Creating article
-  Given I am the web site owner
-  And I am on the articles creation page
-  When I fill in the "Title" field with "Article Title"
-  And I fill in "Text" field with some text
-  Then I should see a success message
-  And I should see "Article Title" in the navigation bar
+  Допустим я - администратор сайта
+  И нахожусь на странице добавления новых статей
+  
+  Когда я заполняю поля формы следующими данными:
+  | Название        | Текст                             | 
+  | Тестовая статья | Какой-то интересный текст статьи  | 
+  
+  То я должен увидеть сообщение об успехе

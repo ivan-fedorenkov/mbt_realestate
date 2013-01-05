@@ -1,3 +1,5 @@
-Given /^I am the web site owner$/ do
+#encoding: utf-8
+
+Допустим /^я - администратор сайта$/ do
   
 end

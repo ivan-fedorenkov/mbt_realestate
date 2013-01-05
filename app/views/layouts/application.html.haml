@@ -8,3 +8,22 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
+  
+  %body
+    .container
+      .row
+        .span12
+          .navbar
+            .navbar-inner
+              .container
+                .nav-collapse
+                  %ul.nav
+                    %li
+                      %a(:href="#") Main
+      .row
+        #notifications.span12
+          = display_flash_messages(flash)
+          
+      .row
+        .span12= yield
+        

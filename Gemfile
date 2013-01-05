@@ -18,11 +18,12 @@ group :assets do
   gem 'dynamic_form'
 end
 
+gem 'rspec-rails', '~> 2.5', :group => [:test,:development]
+
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'capybara'
-  gem 'rspec-rails', '~> 2.5'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'email_spec'
@@ -46,6 +47,7 @@ end
 gem 'jquery-rails'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails'
+gem 'bootstrap-wysihtml5-rails'
 gem 'haml'
 gem "factory_girl_rails", "~> 4.0"
 gem 'faker'
