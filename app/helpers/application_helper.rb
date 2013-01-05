@@ -24,4 +24,5 @@ module ApplicationHelper
     
     return flash_messages.html_safe
   end
+  
 end

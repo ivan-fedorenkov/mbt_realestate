@@ -16,3 +16,4 @@ end
 То /^я должен увидеть сообщение об успехе$/ do
   find("#notifications").find(".alert-info").text.should_not be_empty
 end
+

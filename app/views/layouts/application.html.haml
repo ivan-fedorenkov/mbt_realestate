@@ -13,13 +13,14 @@
     .container
       .row
         .span12
-          .navbar
+          #navigation-panel.navbar
             .navbar-inner
               .container
                 .nav-collapse
                   %ul.nav
-                    %li
-                      %a(:href="#") Main
+                    %li= link_to "Main", root_path
+                    - @articles_for_navbar.each do |article|
+                      %li= link_to article.title, article_path(article)
       .row
         #notifications.span12
           = display_flash_messages(flash)
