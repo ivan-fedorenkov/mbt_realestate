@@ -5,10 +5,8 @@
 end
 
 Когда /^я заполняю поля формы следующими данными:$/ do |fields_table|
-  fields_table.hashes.each do |fields_row|
-    fields_row.keys.each do |field_name|
-      find(:xpath, "//*[contains(@name,'#{get_form_field(field_name)}')]").set(fields_row[field_name])
-    end
+  fields_table.raw.each do |field_row|
+    find(:xpath, "//*[contains(@name,'#{get_form_field(field_row[0])}')]").set(field_row[1]) if field_row[1]
   end
   find(:xpath, "//*[@name = 'commit']").click
 end
