@@ -25,4 +25,17 @@ module ApplicationHelper
     return flash_messages.html_safe
   end
   
+  def display_price(price)
+    price = price.to_s
+    price_length = price.length
+    current_position = price_length - 3
+    begin
+      if (((price_length - current_position) % 3) == 0)
+        price = price.insert(current_position, ",")
+      end 
+      current_position -= 1
+    end while current_position > 0 
+    return price
+  end
+  
 end

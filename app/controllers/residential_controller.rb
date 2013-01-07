@@ -1,10 +1,13 @@
 class ResidentialController < ApplicationController
   
-  before_filter :find_residential, :only => [:edit,:update]
+  before_filter :find_residential, :only => [:show,:edit,:update]
   
   def index
     @residential = Residential.all
   end  
+  
+  def show
+  end
 
   def new
     @residential = Residential.new

@@ -1,0 +1,11 @@
+.row
+  .span5
+    %h3= @residential.title
+  .span3.text-right
+    %h2 
+      &euro;
+      = display_price(@residential.price)
+.row
+  .span8
+    %h4 Description
+    %p= raw @residential.description 
