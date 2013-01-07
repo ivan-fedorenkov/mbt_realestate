@@ -1,0 +1,9 @@
+#showcase-loader
+#showcase.showcase
+  .showcase-slide">
+    - pictures.each do |picture|
+      .showcase-content
+        = image_tag picture.picture.url(:big)
+      .showcase-thumbnail
+        = image_tag picture.picture.url(:thumb)
+        .showcase-thumbnail-cover

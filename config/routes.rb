@@ -58,6 +58,8 @@ MbtRealestate::Application.routes.draw do
   root :to => 'articles#index'
   
   resources :articles
-  resources :residential
+  resources :residential do
+    resource :pictures
+  end
   
 end

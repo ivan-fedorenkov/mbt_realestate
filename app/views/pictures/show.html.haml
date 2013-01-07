@@ -1,0 +1,8 @@
+%legend Existing Pictures
+%ul#photo-list
+  - @pictures.each do |picture|
+    %li= image_tag picture.picture.url(:thumb)
+   
+
+%legend Add a new image
+= render "form"

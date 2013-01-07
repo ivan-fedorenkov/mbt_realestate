@@ -44,7 +44,7 @@ end
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
 
 gem 'jquery-rails'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
@@ -55,5 +55,7 @@ gem "factory_girl_rails", "~> 4.0"
 gem 'faker'
 gem 'rails-i18n'
 gem 'devise'
+gem 'paperclip', "~> 3.0"
+gem 'paperclip-dropbox', "~> 1.1.1"
 
 

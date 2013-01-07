@@ -1,5 +1,7 @@
 class Residential < ActiveRecord::Base
   
+  has_many :pictures, :as => :imageable
+  
   attr_accessible :baths, :bedrooms, :communal_pool, 
     :covered_area, :levels, :plot, :price, 
     :private_pool, :title, :residential_type, :description
@@ -13,4 +15,5 @@ class Residential < ActiveRecord::Base
      :semi_detached => 'Semi Detached',
      :town_house => 'Town House',
      :apartment => 'Apartment'}
+     
 end

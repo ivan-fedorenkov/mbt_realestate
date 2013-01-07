@@ -4,7 +4,9 @@ module KnowsThePageStructure
   def get_selector(selector_human_name)
     return case selector_human_name
       when /списке предложений о жилье/
-        "#residential-list" 
+        "#residential-list"
+      when /списке фотографий/
+        "#photo-list"
       else 
         raise "Селектор `#{selector_human_name}` не найден в списке. Добавьте его в файл `knows_the_page_structure.rb`"
     end

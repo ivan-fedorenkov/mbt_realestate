@@ -16,7 +16,7 @@ end
 end
 
 
-Тогда /^ссылка на статью "(.*?)" должна располагаться перед ссылкой на статью "(.*?)" в панели навигации$/ do |first_article, second_article|
+Тогда /^ссылка на статью "(.*?)" должна располагаться перед ссылкой на статью "(.*?)"$/ do |first_article, second_article|
   visit(root_path)
   find("#navigation-panel").text.should =~ /#{first_article}.*?#{second_article}/
 end

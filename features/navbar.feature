@@ -25,5 +25,5 @@
   | About us              | Article about company       | 2        |
   | Real Estate in Cyprus | Article about real estate   | 1        |
   
-  Тогда ссылка на статью "Real Estate in Cyprus" должна располагаться перед ссылкой на статью "About us" в панели навигации
+  Тогда ссылка на статью "Real Estate in Cyprus" должна располагаться перед ссылкой на статью "About us"
    

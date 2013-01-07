@@ -11,7 +11,10 @@ module KnowsTheRoutes
       when /странице добавления предложения/
         new_residential_path
       when /странице редактирования предложения "(.*?)"/
-        edit_residential_path(Residential.where(:title => $1).first)        
+        edit_residential_path(Residential.where(:title => $1).first)
+      when /странице редактирования фотографий предложения о жилье "(.*?)"/
+        residential_pictures_path(Residential.where(:title => $1).first)  
+              
       else
         raise "Путь `#{page_human_name}` не найден. Необходимо добавить путь в файл `knows_the_routes.rb`"        
     end
