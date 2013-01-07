@@ -208,6 +208,7 @@ DEPENDENCIES
   faker
   haml
   jquery-rails
+  launchy
   less-rails
   pg
   rails (= 3.2.9)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130105202026) do
+ActiveRecord::Schema.define(:version => 20130106073903) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -22,5 +22,21 @@ ActiveRecord::Schema.define(:version => 20130105202026) do
   end
 
   add_index "articles", ["position"], :name => "index_articles_on_position"
+
+  create_table "residentials", :force => true do |t|
+    t.string   "title"
+    t.string   "residential_type"
+    t.text     "description"
+    t.integer  "levels",           :default => 0
+    t.integer  "bedrooms",         :default => 0
+    t.integer  "covered_area",     :default => 0
+    t.integer  "baths",            :default => 0
+    t.integer  "plot",             :default => 0
+    t.integer  "price",            :default => 0
+    t.boolean  "private_pool",     :default => false
+    t.boolean  "communal_pool",    :default => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
 
 end
