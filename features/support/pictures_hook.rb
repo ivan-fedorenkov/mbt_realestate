@@ -1,5 +1,5 @@
 require 'fileutils'
 
 After do |scenario|
-  FileUtils.rm_rf(Rails.root + 'public/system')
+  Residential.all.each { |r| r.pictures.destroy_all }
 end
