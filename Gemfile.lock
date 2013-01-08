@@ -121,6 +121,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.5.0)
+    newrelic_rpm (3.5.4.34)
     nokogiri (1.5.5)
     orm_adapter (0.4.0)
     paperclip (3.4.0)
@@ -231,6 +232,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   less-rails
+  newrelic_rpm
   paperclip (~> 3.0)
   paperclip-dropbox (~> 1.1.1)
   pg
