@@ -5,7 +5,15 @@
     %h2 
       &euro;
       = display_price(@residential.price)
+
+- if @residential.pictures
+  .row
+    %br/
+    .span8
+      = render :partial => 'pictures/showcase', :locals => {:pictures => @residential.pictures}      
+
 .row
+  %br/
   .span8
     %h4 Description
     %p= raw @residential.description 

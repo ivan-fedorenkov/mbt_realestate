@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require bootstrap-wysihtml5
+//= require wisyhtml5
+//= require jquery.aw-showcase/jquery.aw-showcase.min
+//= require global
 //= require_tree .
