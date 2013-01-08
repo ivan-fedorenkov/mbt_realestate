@@ -40,7 +40,7 @@ class ResidentialController < ApplicationController
 private 
   def find_residential
     begin
-      @residential = Residential.find(params[:id])
+      @residential = Residential.includes(:pictures).find(params[:id])
     rescue ActiveRecord::RecordNotFound
       flash[:alert] = "Requested residential could not be found."
       redirect_to root_path
