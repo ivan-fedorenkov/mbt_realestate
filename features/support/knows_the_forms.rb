@@ -29,6 +29,8 @@ module KnowsTheForms
         "communal_pool"
       when /Описание/
         "description"
+      when /Дополнительные характеристики/
+        "Additional features"
       else
         raise "Поле формы `#{field_human_name}` не найдено. Добавьте его в файл `knows_the_forms.rb`"
     end

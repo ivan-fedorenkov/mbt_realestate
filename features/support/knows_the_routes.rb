@@ -5,7 +5,8 @@ module KnowsTheRoutes
     return case page_human_name
       when /странице добавления новых статей/
         new_article_path
-        
+      when /страницу предложения "(.*?)"/
+	residential_path(Residential.where(:title => $1).first)       
       when /странице редактирования предложений о жилье/
         residential_index_path
       when /странице добавления предложения/

@@ -8,3 +8,7 @@ end
   fill_in "Title", :with => new_residential_name
   find(:xpath, "//*[@name = 'commit']").click
 end
+
+То /^я должен видеть все добавленные дополнительные характеристики$/ do
+  pending "TODO"
+end

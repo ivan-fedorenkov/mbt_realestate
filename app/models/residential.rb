@@ -4,7 +4,8 @@ class Residential < ActiveRecord::Base
   
   attr_accessible :baths, :bedrooms, :communal_pool, 
     :covered_area, :levels, :plot, :price, 
-    :private_pool, :title, :residential_type, :description
+    :private_pool, :title, :residential_type, :description,
+    :additional_features
   
   validates :title, :presence => true
   validates :covered_area,:plot,:price,:bedrooms,:baths,:levels,
@@ -15,5 +16,15 @@ class Residential < ActiveRecord::Base
      :semi_detached => 'Semi Detached',
      :town_house => 'Town House',
      :apartment => 'Apartment'}
+     
+  after_initialize :initialize_features
+  
+  def initialize_features
+    @features = Features.new(additional_features)
+  end
+  
+  def features
+    @features.to_hash
+  end
      
 end

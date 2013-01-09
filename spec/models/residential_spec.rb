@@ -19,5 +19,9 @@ describe Residential do
       create_should_raise_record_invalid(:residential, :residential_type => "invalid type")
     end
     
+    it "additional_features must be in predefined format" do
+      create_should_raise_record_invalid(:residential, :additional_features => "invalid features string")
+    end
+    
   end
 end

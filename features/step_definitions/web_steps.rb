@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-Допустим /^(?:я )?нахожусь на (.*)$/ do |page_human_name|
+Допустим /^(?:я )?(?:нахожусь|перехожу) на (.*)$/ do |page_human_name|
   visit(get_route(page_human_name))
 end
 
@@ -13,6 +13,14 @@ end
     field_row[1] = "true" if(field_row[1] =~ /^v$/)
     find(:xpath, "//*[contains(@name,'#{get_form_field(field_row[0])}')]").set(field_row[1]) if field_row[1]
   end
+  find(:xpath, "//*[@name = 'commit']").click
+end
+
+Когда /^я заполняю поле "(.*?)" значением "(.*?)"$/ do |field_name, value|
+  fill_in get_form_field(field_name), :with => value
+end
+
+Когда /^оставляю остальные поля формы без изменений$/ do
   find(:xpath, "//*[@name = 'commit']").click
 end
 
