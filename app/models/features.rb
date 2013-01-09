@@ -6,7 +6,7 @@ class Features
   
   def initialize(features_string)
     @features = {}
-    if features_string
+    if ((features_string) and (!features_string.blank?))
       if features_string.match(@@features_regexp)
         features = features_string.split(%r{;\s*})
         features.each do |feature|
@@ -23,7 +23,7 @@ class Features
     @features
   end
   
-  def self.features_regexp
+  def self.validation_format
     @@feature_regexp
   end
 end

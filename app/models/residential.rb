@@ -16,6 +16,10 @@ class Residential < ActiveRecord::Base
      :semi_detached => 'Semi Detached',
      :town_house => 'Town House',
      :apartment => 'Apartment'}
+  validates :additional_features, 
+    :format => { :with => Features.validation_format }, 
+    :allow_nil => true, 
+    :allow_blank => true
      
   after_initialize :initialize_features
   

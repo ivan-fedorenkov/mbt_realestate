@@ -34,4 +34,7 @@ MbtRealestate::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  # Configure paperclip to store its files in the special directory
+  config.paperclip_defaults = { :path => ":rails_root/public/system/test_attachments/:class/:attachment/:id_partition/:style/:filename" }
 end

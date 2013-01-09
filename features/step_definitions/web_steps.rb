@@ -18,6 +18,7 @@ end
 
 Когда /^я заполняю поле "(.*?)" значением "(.*?)"$/ do |field_name, value|
   fill_in get_form_field(field_name), :with => value
+  @form = {field_name => value}
 end
 
 Когда /^оставляю остальные поля формы без изменений$/ do

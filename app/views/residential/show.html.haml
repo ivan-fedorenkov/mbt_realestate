@@ -17,3 +17,12 @@
   .span8
     %h4 Description
     %p= raw @residential.description 
+    
+    - @residential.features.map do |feature_title, feature_elements|
+      .feature
+        %h4= feature_title
+        %ul
+          - feature_elements.each do |element|
+            %li= raw element
+              
+  
