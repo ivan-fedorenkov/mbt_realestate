@@ -3,6 +3,8 @@
 module KnowsTheRoutes
   def get_route(page_human_name)
     return case page_human_name
+      when /главной странице/
+        root_path
       when /странице добавления новых статей/
         new_article_path
       when /страницу предложения "(.*?)"/

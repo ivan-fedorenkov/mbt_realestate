@@ -34,8 +34,8 @@ end
   should_not have_content(what)  
 end
 
-То /^(.*) в (.*)$/ do |actions, where|
-  within(get_selector(where)) { step %Q{#{actions}} }
+То /^(.*) (в зоне|в списке) (.*)$/ do |actions, where_prefix, where|
+  within(get_selector(where_prefix + " " + where)) { step %Q{#{actions}} }
 end
 
 То /^я должен увидеть сообщение об успехе$/ do
