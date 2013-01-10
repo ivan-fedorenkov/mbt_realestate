@@ -11,3 +11,7 @@ end
   end
   admin = FactoryGirl.create(:admin, admin_properties)
 end
+
+То /^я должен увидеть приветственное сообщение$/ do
+  step %Q{я должен видеть "Signed in successfully." в зоне нотификаций}
+end

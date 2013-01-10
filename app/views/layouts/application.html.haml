@@ -38,7 +38,7 @@
                       %li= link_to article.title, article_path(article)
                   %ul.nav.pull-right
                     %li.dropdown
-                      %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}}
+                      %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}, :href => new_admin_session_path}
                         Sign In
                         %strong.caret
                       .dropdown-menu
@@ -49,5 +49,5 @@
           = display_flash_messages(flash)
           
       .row
-        .span12= yield
+        #content.span12= yield
         

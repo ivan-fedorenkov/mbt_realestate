@@ -1,8 +1,8 @@
 #encoding: utf-8
 
-Допустим /^добавляю фотографию "(.*?)"$/ do |picture_path|
+Допустим /^добавляю фотографию "(.*?)"(?: в форму (.*?))?$/ do |picture_path, form|
   attach_file("Picture", File.expand_path(picture_path))
-  find(:xpath, "//*[@name = 'commit']").click
+  step %Q{я отправляю форму #{form}}
 end
 
 То /^фотография "(.*?)" должна появиться$/ do |picture|

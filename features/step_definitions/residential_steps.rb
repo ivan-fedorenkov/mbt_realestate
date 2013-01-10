@@ -5,8 +5,8 @@
 end
 
 Когда /^я изменяю название предложения на "(.*?)"$/ do |new_residential_name|
-  fill_in "Title", :with => new_residential_name
-  find(:xpath, "//*[@name = 'commit']").click
+  step %Q{я заполняю поле "Название" значением "#{new_residential_name}"}
+  step %Q{я отправляю форму}
 end
 
 То /^я должен видеть все добавленные дополнительные характеристики$/ do
