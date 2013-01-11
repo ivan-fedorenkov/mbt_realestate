@@ -20,8 +20,6 @@ group :assets do
   gem 'dynamic_form'
 end
 
-gem 'rspec-rails', '~> 2.12', :group => [:test,:development]
-
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
@@ -30,6 +28,17 @@ group :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
+end
+
+group :development do
+  gem 'rb-inotify', '~> 0.8.8'
+  gem 'guard'
+  gem 'spork', '~> 1.0rc'
+  gem 'guard-spork'
+end
+
+group :test, :development do
+  gem 'rspec-rails', '~> 2.12'
 end
 
 # To use ActiveModel has_secure_password
@@ -59,4 +68,4 @@ gem 'devise'
 gem 'paperclip', "~> 3.0"
 gem 'paperclip-dropbox', "~> 1.1.1"
 
-
+gem 'thin', :group => :development

@@ -20,31 +20,6 @@ describe ResidentialController do
       end
     end
   end
-
-  describe "create" do
-    context "no validation errors" do
-      before(:each) do
-        post :create, :residential => {:title => valid_residential.title, 
-          :residential_type => valid_residential.residential_type}
-      end
-      it "should create a new residential" do
-        last_residential = Residential.last
-        last_residential.title.should eql(valid_residential.title)
-      end
-      it "should set a success message and redirect to residentials index" do
-        flash[:notice].should eql("Residential has been created.")
-        expect(response).to redirect_to(residential_index_path)
-      end
-    end
-    context "validation errors" do
-      it "should set an error message and render the residential creation form again" do
-        post :create, :residential => {:title => invalid_residential.title, 
-          :residential_type => invalid_residential.residential_type}
-        flash[:alert].should eql("Residential has not been created.")
-        expect(response).to render_template("new")
-      end
-    end
-  end
   
   describe "update" do
     context "no validation errors" do

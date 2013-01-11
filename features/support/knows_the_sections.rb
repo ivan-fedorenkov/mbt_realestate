@@ -5,6 +5,8 @@ module KnowsTheSections
     return case section_human_name
       when /администрирования статей/
         "Articles"
+      when /предложений о жилье/
+        "Residential"
       else
         raise "Раздел `#{section_human_name}` не найден. Необходимо добавить раздел в файл `knows_the_sections.rb`"  
     end
