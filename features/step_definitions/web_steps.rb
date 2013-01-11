@@ -56,7 +56,7 @@ end
 end
 
 То /^я должен увидеть сообщение об успехе$/ do
-  find("#notifications").find(".alert-info").text.should_not be_empty
+  find("#notifications").find(".alert-success").text.should_not be_empty
 end
 
 Тогда /^я не должен ввидеть ссылку "(.*?)" в (.*)$/ do |link_title, where|

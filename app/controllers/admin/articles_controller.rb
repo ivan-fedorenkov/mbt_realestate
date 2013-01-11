@@ -1,6 +1,6 @@
 class Admin::ArticlesController < Admin::BaseController
   
-  before_filter :find_article, :only => [:show, :edit, :update]  
+  before_filter :find_article, :only => [:show, :edit, :update, :destroy]  
   
   def index
     @articles = Article.all
@@ -35,6 +35,12 @@ class Admin::ArticlesController < Admin::BaseController
       flash[:alert] = "Article has not been updated."
       render :action => "edit"
     end
+  end
+  
+  def destroy
+    @article.destroy
+    flash[:notice] = "Article has been destroyed."
+    redirect_to admin_articles_path
   end
   
 private 

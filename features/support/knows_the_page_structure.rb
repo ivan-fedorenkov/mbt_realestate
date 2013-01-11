@@ -7,6 +7,8 @@ module KnowsThePageStructure
         "#residential-list"
       when /списке фотографий/
         "#photo-list"
+      when /в списке статей/
+        "#articles-list"
       when /зоне нотификаций/
         "#notifications"
       when /панели навигации/
