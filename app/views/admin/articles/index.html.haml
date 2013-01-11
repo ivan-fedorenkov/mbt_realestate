@@ -5,11 +5,11 @@
 
 .row
   .span12
-    %ol
+    %ol#articles-list
       - @articles.each do |article|
         %li
           %span[article]
             = link_to article.title, admin_article_path(article)
-            = link_to "Edit", edit_admin_article_path(article)
-            = link_to "Delete", admin_article_path(article), :method => :delete, :confirm => "Are you sure?"
+            = link_to "Edit", edit_admin_article_path(article), :class => 'btn btn-mini'
+            = link_to "Delete", admin_article_path(article), :method => :delete, :confirm => "Are you sure?", :class => 'btn btn-mini btn-danger'
         

@@ -2,7 +2,7 @@
 
 module ApplicationHelper
   @@flash_classes =
-    {:notice  => 'alert-info',
+    {:notice  => 'alert-success',
      :alert   => 'alert-error'}
 
   def flash_class_for(key)

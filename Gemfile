@@ -40,6 +40,7 @@ end
 
 # Use unicorn as the app server
 # gem 'unicorn'
+gem 'thin', :group => :development
 
 # Deploy with Capistrano
 # gem 'capistrano'

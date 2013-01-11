@@ -11,7 +11,7 @@ describe Admin::ArticlesController do
   end
   
   describe "find_article filter" do
-    {:show => :get, :edit => :get, :update => :put}.each do |action, method|
+    {:show => :get, :edit => :get, :update => :put, :destroy => :delete}.each do |action, method|
       it "should find the article for #{method} method" do
         send(method, action, :id => article.id)
         expect(assigns[:article]).to eql(article)
@@ -85,5 +85,17 @@ describe Admin::ArticlesController do
       end
     end
   end 
+  
+  describe "destroy" do
+    it "should delete an article" do
+      return_article = double()
+      Article.should_receive(:find).with(article.id.to_s).and_return(return_article)
+      return_article.should_receive(:destroy)
+
+      delete :destroy, :id => article.id
+      flash[:notice].should eql("Article has been destroyed.")
+      expect(response).to redirect_to(admin_articles_path)
+    end
+  end
 
 end

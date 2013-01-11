@@ -29,3 +29,7 @@ end
 Когда /^я изменяю название статьи на "(.*?)"$/ do |new_article_title|
   step %Q{я заполняю поле "Название" значением "#{new_article_title}"}
 end
+
+То /^я не должен видеть статью "(.*?)"$/ do |article_title|
+  should_not have_content(article_title)
+end

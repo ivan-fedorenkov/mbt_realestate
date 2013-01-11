@@ -10,6 +10,8 @@ module KnowsTheRoutes
         root_path
       when /страниц(е|у) добавления( новых)? статей/
         new_admin_article_path
+      when /страниц(е|у) редактирования статей/
+        admin_articles_path
       when /страниц(е|у) редактирования этой статьи/
         edit_admin_article_path(article)
       when /страниц(е|у|) статьи "(.*?)" панели администратора/
