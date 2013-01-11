@@ -7,18 +7,6 @@ describe ResidentialController do
   let(:invalid_residential) { FactoryGirl.build(:residential, :title => "") }
 
   describe "find_residential filter" do
-    controller(ResidentialController) do
-      def show
-        render :nothing => true
-      end
-      def edit
-        render :nothing => true
-      end
-      def update
-        render :nothing => true
-      end
-    end  
-    
     {:show => :get, :edit => :get, :update => :put}.each do |action, method|
       it "should find the residential for #{action} action" do
         send(method, action, :id => residential.id)

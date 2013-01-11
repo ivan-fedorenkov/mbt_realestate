@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
   
   before_filter :find_imageable
   
-  def show
+  def index
     @pictures = @imageable.pictures
     @picture = Picture.new
   end

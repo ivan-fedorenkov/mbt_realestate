@@ -20,7 +20,7 @@ group :assets do
   gem 'dynamic_form'
 end
 
-gem 'rspec-rails', '~> 2.5', :group => [:test,:development]
+gem 'rspec-rails', '~> 2.12', :group => [:test,:development]
 
 group :test do
   # Pretty printed test output
@@ -48,7 +48,7 @@ end
 gem 'debugger'
 
 gem 'jquery-rails'
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+#gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-wysihtml5-rails'
 gem 'haml'

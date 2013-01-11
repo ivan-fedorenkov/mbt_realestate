@@ -7,18 +7,6 @@ describe ArticlesController do
   let(:invalid_article) { FactoryGirl.build(:article, :title => "") }
 
   describe "find_article filter" do
-    controller(ArticlesController) do
-      def show
-        render :nothing => true
-      end
-      def edit
-        render :nothing => true
-      end
-      def update
-        render :nothing => true
-      end
-    end  
-    
     {:show => :get,:edit => :get, :update => :put}.each do |action, method|
       it "should find the article for #{method} method" do
         send(method, action, :id => article.id)
@@ -31,6 +19,7 @@ describe ArticlesController do
         expect(response).to redirect_to(root_path)
       end
     end
+    
   end
   
   describe "create" do
