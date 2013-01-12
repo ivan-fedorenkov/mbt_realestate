@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-Допустим /^(?:я )?(?:нахожусь|перехожу) на (.*)$/ do |page_human_name|
+Допустим /^(?:я )?(?:нахожусь на|перехожу на|пытаюсь открыть) (.*)$/ do |page_human_name|
   visit(get_route(page_human_name))
 end
 
@@ -14,7 +14,8 @@ end
     field_row[1] = "true" if(field_row[1] =~ /^v$/)
     find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{get_form_field(field_row[0])}')]").set(field_row[1]) if field_row[1]
   end
-  step %Q{я отправляю форму #{form}}
+  
+  submit_form! form
 end
 
 Когда /^я заполняю поле(?: формы (.*?))? "(.*?)" значением "(.*?)"$/ do |form, field_name, value|
@@ -23,11 +24,11 @@ end
 end
 
 Когда /^оставляю остальные поля формы(?: (.*?))? без изменений$/ do |form|
-  step %Q{я отправляю форму #{form}}
+  submit_form! form
 end
 
 Когда /^я отправляю форму\s*(?: (.*?))?$/ do |form|
-  find(:xpath, "#{form_area_xpath_selector_for(form)}//*[@name = 'commit']").click
+  submit_form! form
 end
 
 

@@ -49,6 +49,10 @@ module KnowsTheForms
         raise "Поле формы `#{field_human_name}` не найдено. Добавьте его в файл `knows_the_forms.rb`"
     end
   end
+  
+  def submit_form!(form = nil)
+    page.find(:xpath, "#{form_area_xpath_selector_for(form)}//*[@name = 'commit']").click
+  end
 end
 
 World(KnowsTheForms)

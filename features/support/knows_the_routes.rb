@@ -5,8 +5,8 @@ module KnowsTheRoutes
     return case page_human_name
       when /главной странице/
         root_path
-      when /странице добавления новых статей/
-        new_article_path
+      when /страниц(е|у) добавления( новых)? статей/
+        new_admin_article_path
         
       when /страницу предложения "(.*?)"/
 	      residential_path(Residential.where(:title => $1).first)       
