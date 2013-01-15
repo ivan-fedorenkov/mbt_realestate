@@ -26,23 +26,9 @@
           %h4 Customer service: 0800 8475 548
           %h4 
             %small 24 hours a day, 7 days a week      
-      .row
-        .span12
-          #navigation-panel.navbar
-            .navbar-inner
-              .container
-                .nav-collapse
-                  %ul.nav
-                    %li= link_to "Main", root_path
-                    - @articles_for_navbar.each do |article|
-                      %li= link_to article.title, article_path(article)
-                  %ul.nav.pull-right
-                    %li.dropdown
-                      %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}, :href => new_admin_session_path}
-                        Sign In
-                        %strong.caret
-                      .dropdown-menu
-                        = render "devise/sessions/form"
+      
+      .row#navigation-panel
+        .span12= render 'navbar'
 
       .row
         #notifications.span12

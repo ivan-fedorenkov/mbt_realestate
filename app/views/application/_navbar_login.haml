@@ -1,0 +1,10 @@
+%ul.nav.pull-right
+  - if admin_signed_in?
+    %li= link_to "Log out", destroy_admin_session_path, :method => :delete
+  - else
+    %li.dropdown
+      %a.dropdown-toggle{:data => {:toggle => "dropdown", :target => "#"}, :href => new_admin_session_path}
+        Sign In
+        %strong.caret
+      .dropdown-menu
+        = render "devise/sessions/form"

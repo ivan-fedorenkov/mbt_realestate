@@ -5,6 +5,7 @@ MbtRealestate::Application.routes.draw do
   devise_for :admins
   
   namespace :admin do
+    root :to => 'base#index'
     resources :articles
   end
   

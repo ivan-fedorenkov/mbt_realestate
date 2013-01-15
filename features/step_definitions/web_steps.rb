@@ -8,13 +8,13 @@ end
   current_path.should eql(get_route(page_human_name))
 end
 
-Когда /^я заполняю поля формы(?: (.*?))? следующими данными:$/ do |form, fields_table|
+Когда /^(?:я )?заполняю поля формы(?: (.*?))? следующими данными:$/ do |form, fields_table|
  
   fields_table.raw.each do |field_row|
     field_row[1] = "true" if(field_row[1] =~ /^v$/)
     find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{get_form_field(field_row[0])}')]").set(field_row[1]) if field_row[1]
   end
-  
+
   submit_form! form
 end
 
@@ -31,6 +31,13 @@ end
   submit_form! form
 end
 
+Когда /^я перехожу по ссылке "(.*?)"$/ do |link_title|
+  click_link link_title
+end
+
+Допустим /^перехожу в раздел (.*)$/ do |section_human_name|
+  within('#navigation-panel') { click_link get_section_link_title(section_human_name) }
+end
 
 То /^я должен видеть "(.*?)"$/ do |what|
   should have_content(what)  
@@ -40,13 +47,18 @@ end
   should_not have_content(what)  
 end
 
-То /^(.*) (в зоне|в списке) (.*)$/ do |actions, where_prefix, where|
+То /^(.*) (в зоне|в списке|расположенной в) (.*)$/ do |actions, where_prefix, where|
   within(get_selector(where_prefix + " " + where)) { step %Q{#{actions}} }
 end
 
 То /^я должен увидеть сообщение об успехе$/ do
   find("#notifications").find(".alert-info").text.should_not be_empty
 end
+
+Тогда /^я не должен ввидеть ссылку "(.*?)" в (.*)$/ do |link_title, where|
+  find(get_selector(where)).has_link?(link_title).should be_false
+end
+
 
 То /^покажи мне страницу$/ do
   save_and_open_page

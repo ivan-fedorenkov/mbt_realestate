@@ -7,8 +7,10 @@ module KnowsThePageStructure
         "#residential-list"
       when /списке фотографий/
         "#photo-list"
-      when /в зоне нотификаций/
+      when /зоне нотификаций/
         "#notifications"
+      when /панели навигации/
+        "#navigation-panel"
       else 
         raise "Селектор `#{selector_human_name}` не найден в списке. Добавьте его в файл `knows_the_page_structure.rb`"
     end

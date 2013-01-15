@@ -1,0 +1,11 @@
+.navbar
+  .navbar-inner
+    .container
+      .nav-collapse
+        %ul.nav
+          %li= link_to "Main", root_path
+          - @articles_for_navbar.each do |article|
+            %li= link_to article.title, article_path(article)
+          - if admin_signed_in?
+            %li= link_to "Admin", admin_root_path
+        = render 'navbar_login'

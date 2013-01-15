@@ -2,11 +2,20 @@
 
 module KnowsTheRoutes
   def get_route(page_human_name)
+    
     return case page_human_name
+      when /главн(ой|ую) страниц(е|у) панели администратора/
+        admin_root_path
       when /главной странице/
         root_path
       when /страниц(е|у) добавления( новых)? статей/
         new_admin_article_path
+      when /страниц(е|у) редактирования статьи/
+        edit_admin_article_path
+      when /страниц(е|у|) статьи "(.*?)" панели администратора/
+        admin_article_path(Article.where(:title => $2).first)
+      when /страниц(е|у|) статьи "(.*?)"/
+        article_path(Article.where(:title => $2).first)
         
       when /страницу предложения "(.*?)"/
 	      residential_path(Residential.where(:title => $1).first)       
