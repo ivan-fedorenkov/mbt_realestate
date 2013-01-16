@@ -40,7 +40,6 @@ end
 
 # Use unicorn as the app server
 # gem 'unicorn'
-gem 'thin', :group => :development
 
 # Deploy with Capistrano
 # gem 'capistrano'
@@ -49,7 +48,7 @@ gem 'thin', :group => :development
 gem 'debugger'
 
 gem 'jquery-rails'
-#gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-wysihtml5-rails'
 gem 'haml'
