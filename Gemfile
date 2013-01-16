@@ -5,6 +5,7 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'thin'
 gem 'sqlite3', :group => [:test, :development]
 gem 'pg', :group => :production
 gem 'newrelic_rpm', :group => :production
@@ -38,7 +39,7 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails', '~> 2.12'
+  gem 'rspec-rails', '~> 2.12.2'
 end
 
 # To use ActiveModel has_secure_password
@@ -67,5 +68,3 @@ gem 'rails-i18n'
 gem 'devise'
 gem 'paperclip', "~> 3.0"
 gem 'paperclip-dropbox', "~> 1.1.1"
-
-gem 'thin', :group => :development

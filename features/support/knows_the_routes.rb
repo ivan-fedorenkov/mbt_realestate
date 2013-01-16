@@ -18,9 +18,10 @@ module KnowsTheRoutes
         admin_article_path(Article.where(:title => $2).first)
       when /странице просмотра изменяемой статьи/
         admin_article_path(article)
-      when /страниц(е|у|) статьи "(.*?)"/
+      when /страниц(е|у) статьи "(.*?)"/
         article_path(Article.where(:title => $2).first)
-      when /страниц(е|у) предложения о жилье "East Beach, Limassol" панели администратора"/
+        
+      when /страниц(е|у) предложения о жилье "(.*?)" панели администратора/
 	      admin_residential_path(Residential.where(:title => $2).first)       
       when /странице редактирования предложений о жилье/
         residential_index_path

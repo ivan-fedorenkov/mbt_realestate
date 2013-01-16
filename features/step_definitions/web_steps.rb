@@ -55,7 +55,7 @@ end
   within(get_selector(where_prefix + " " + where)) { step %Q{#{actions}} }
 end
 
-То /^я должен увидеть сообщение об успехе$/ do
+То /^я должен (?:у)?видеть сообщение об успехе$/ do
   find("#notifications").find(".alert-success").text.should_not be_empty
 end
 

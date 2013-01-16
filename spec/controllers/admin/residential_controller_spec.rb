@@ -5,8 +5,16 @@ describe Admin::ResidentialController do
   before(:each) do 
     authenticate_admin!
   end
+  
 
   describe "find_residential filter" do
+    
+    controller(Admin::ResidentialController) do
+      def show
+        render :nothing => true
+      end
+    end
+    
     {:show => :get}.each do |action, method|
       it "should find the residential for #{action} action" do
         residential = double("a residential record")
@@ -18,7 +26,7 @@ describe Admin::ResidentialController do
         expect(assigns[:residential]).to eql(residential)
       end
       
-      it "should render error and redirect to root path if residential not found" do
+      it "should render error and redirect to residential index path if residential not found" do
         Residential.stub(:find).and_raise(ActiveRecord::RecordNotFound)
         send(method, action, :id => "invalid id")
         flash[:alert].should eql("Requested residential could not be found.")
