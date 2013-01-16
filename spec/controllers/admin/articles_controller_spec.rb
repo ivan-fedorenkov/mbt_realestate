@@ -17,10 +17,10 @@ describe Admin::ArticlesController do
         expect(assigns[:article]).to eql(article)
       end
       
-      it "should render error and redirect to root path if article not found" do
+      it "should render error and redirect to articles index if article not found" do
         send(method, action, :id => "invalid id")
         flash[:alert].should eql("Requested article could not be found.")
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(admin_articles_path)
       end
     end
   end
@@ -74,7 +74,7 @@ describe Admin::ArticlesController do
       end
       it "should set a success message and redirect back to the article page" do
         flash[:notice].should eql("Article has been updated.")
-        expect(response).to redirect_to(article_path(article))
+        expect(response).to redirect_to(admin_article_path(article))
       end
     end
     context "validation errors" do

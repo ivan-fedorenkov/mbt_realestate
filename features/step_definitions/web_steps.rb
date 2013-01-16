@@ -31,7 +31,7 @@ end
   submit_form! form
 end
 
-Когда /^я перехожу по ссылке "(.*?)"$/ do |link_title|
+Когда /^я перехожу по ссылке "([^"]*?)"$/ do |link_title|
   click_link link_title
 end
 
@@ -45,6 +45,10 @@ end
 
 То /^я не должен видеть "(.*?)"$/ do |what|
   should_not have_content(what)  
+end
+
+То /^её название должно измениться на "(.*?)"$/ do |new_name|
+  find("legend").should have_content(new_name)
 end
 
 То /^(.*) (в зоне|в списке|расположенной в) (.*)$/ do |actions, where_prefix, where|

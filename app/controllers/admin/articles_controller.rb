@@ -30,7 +30,7 @@ class Admin::ArticlesController < Admin::BaseController
   def update
     if @article.update_attributes(params[:article])
       flash[:notice] = "Article has been updated."
-      redirect_to article_path(@article)
+      redirect_to admin_article_path(@article)
     else
       flash[:alert] = "Article has not been updated."
       render :action => "edit"
@@ -43,7 +43,7 @@ private
       @article = Article.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       flash[:alert] = "Requested article could not be found."
-      redirect_to root_path
+      redirect_to admin_articles_path
     end
   end
   
