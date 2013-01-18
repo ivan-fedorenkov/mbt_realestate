@@ -27,6 +27,10 @@ end
   submit_form! form
 end
 
+Когда /^отправляю форму(?: (.*?))?$/ do |form|
+  submit_form! form
+end
+
 Когда /^я отправляю форму\s*(?: (.*?))?$/ do |form|
   submit_form! form
 end

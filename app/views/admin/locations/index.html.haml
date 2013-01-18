@@ -8,5 +8,7 @@
     %ol#locations-list
       - @locations.each do |location|
         %li
-          = location.name        
+          %span[location]
+            = location.name
+            = link_to "Edit", edit_admin_location_path(location), :class => 'btn btn-mini'        
     

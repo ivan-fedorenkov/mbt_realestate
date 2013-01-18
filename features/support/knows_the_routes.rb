@@ -41,10 +41,15 @@ module KnowsTheRoutes
       when /страниц(е|у) редактирования фотографий этого предложения о жилье/
         admin_residential_pictures_path(residential)
         
-      
+      when /странице редактирования регионов/
+        admin_locations_path
+      when /странице редактирования этого региона/
+        edit_admin_location_path(location)
         
       when /странице входа в учётную запись/
         new_admin_session_path
+      
+        
       else
         raise "Путь `#{page_human_name}` не найден. Необходимо добавить путь в файл `knows_the_routes.rb`"        
     end

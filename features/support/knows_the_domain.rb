@@ -8,6 +8,9 @@ module KnowsTheDomain
   def picture(params = {})
     @picture ||= FactoryGirl.create(:picture, params)
   end
+  def location(params = {})
+    @location ||= FactoryGirl.create(:location, params)
+  end
 end
 
 World(KnowsTheDomain)
