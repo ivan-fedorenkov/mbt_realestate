@@ -8,6 +8,8 @@ module KnowsTheForms
         "//div[@id = 'navigation-panel']"
       when /добавления фотографий/
         "//*[@id = 'add-picture-form']"
+      when /добавления региона/
+        "//*[@id = 'add-location-form']"
       else
         "//div[@id = 'content']"
     end
@@ -15,6 +17,8 @@ module KnowsTheForms
   
   def get_form_field(field_human_name)
     return case field_human_name
+      when /Наименование/
+        "name"
       when /Название/
         "title"
       when /Текст/

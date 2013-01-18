@@ -1,0 +1,7 @@
+#add-location-form
+  = form_for [:admin, @location] do |f|
+    %p
+      = f.label :name
+      = f.text_field :name
+    %p
+      = f.submit :class => "btn btn-primary"

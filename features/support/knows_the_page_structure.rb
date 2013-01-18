@@ -13,6 +13,8 @@ module KnowsThePageStructure
         "#notifications"
       when /панели навигации/
         "#navigation-panel"
+      when /в списке регионов/
+        "#locations-list"
       else 
         raise "Селектор `#{selector_human_name}` не найден в списке. Добавьте его в файл `knows_the_page_structure.rb`"
     end

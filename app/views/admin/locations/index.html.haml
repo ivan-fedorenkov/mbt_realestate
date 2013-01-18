@@ -1,0 +1,12 @@
+.row
+  .span12
+    %legend Add new location
+    = render 'form'
+
+.row
+  .span12
+    %ol#locations-list
+      - @locations.each do |location|
+        %li
+          = location.name        
+    

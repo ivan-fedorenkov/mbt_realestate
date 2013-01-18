@@ -41,6 +41,8 @@ module KnowsTheRoutes
       when /страниц(е|у) редактирования фотографий этого предложения о жилье/
         admin_residential_pictures_path(residential)
         
+      
+        
       when /странице входа в учётную запись/
         new_admin_session_path
       else

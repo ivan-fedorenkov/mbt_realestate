@@ -6,6 +6,7 @@ MbtRealestate::Application.routes.draw do
   
   namespace :admin do
     root :to => 'base#index'
+    resources :locations
     resources :articles
     resources :residential do
       resources :pictures do

@@ -7,6 +7,8 @@ module KnowsTheSections
         "Articles"
       when /предложений о жилье/
         "Residential"
+      when /редактирования регионов/
+        "Locations"
       else
         raise "Раздел `#{section_human_name}` не найден. Необходимо добавить раздел в файл `knows_the_sections.rb`"  
     end
