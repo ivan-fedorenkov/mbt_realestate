@@ -24,11 +24,15 @@ module KnowsTheRoutes
       when /странице этого предложения о жилье панели администратора/
         admin_residential_path(residential)
       when /страниц(е|у) предложения о жилье "(.*?)" панели администратора/
-	      admin_residential_path(Residential.where(:title => $2).first)       
+	      admin_residential_path(Residential.where(:title => $2).first)
+      when /страниц(е|у) предложения о жилье "(.*?)"/
+        residential_path(Residential.where(:title => $2).first)
       when /странице редактирования предложений о жилье/
         residential_index_path
       when /странице добавления предложения о жилье/
         new_admin_residential_path
+      when /странице редактирования предложения о жилье "(.*?)"/
+        edit_admin_residential_path(Residential.where(:title => $1).first)
       when /странице редактирования этого предложения о жилье/
         edit_admin_residential_path(residential)
       when /странице редактирования фотографий предложения о жилье "(.*?)"/
