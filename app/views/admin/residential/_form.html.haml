@@ -6,41 +6,37 @@
     = f.label :residential_type
     = f.collection_select :residential_type, Residential.get_residential_type_values, :first, :second
     
-  %p
-    = f.label :levels
-    = f.text_field :levels, :class => "input-mini"
-    
-  %p
-    = f.label :bedrooms
-    = f.text_field :bedrooms, :class => "input-mini"
-  
-  %p
-    = f.label :covered_area
-    = f.text_field :covered_area, :class => "input-mini"
-    
-  %p
-    = f.label :baths
-    = f.text_field :baths, :class => "input-mini"
-    
-  %p
-    = f.label :plot
-    = f.text_field :plot, :class => "input-mini"
-    
-  %p
-    = f.label :price
-    = f.text_field :price, :class => "input-mini"
-    
-  %p
-    = f.label :private_pool
-    = f.select :private_pool, [["Yes", true],["No", false]]
-  
-  %p
-    = f.label :communal_pool
-    = f.select :communal_pool, [["Yes", true],["No", false]]
+  .row
+    .span2
+      = f.label :levels
+      = f.text_field :levels, :class => "input-mini"
+    .span2
+      = f.label :bedrooms
+      = f.text_field :bedrooms, :class => "input-mini"
+    .span2
+      = f.label :covered_area
+      = f.text_field :covered_area, :class => "input-mini"
+    .span2
+      = f.label :baths
+      = f.text_field :baths, :class => "input-mini"
+  .row    
+    .span2
+      = f.label :plot
+      = f.text_field :plot, :class => "input-mini"
+    .span2
+      = f.label :price
+      = f.text_field :price, :class => "input-mini"
+  .row    
+    .span4
+      = f.label :private_pool
+      = f.select :private_pool, [["Yes", true],["No", false]]
+    .span4
+      = f.label :communal_pool
+      = f.select :communal_pool, [["Yes", true],["No", false]]
     
   %p
     = f.label :additional_features
-    = f.text_area :additional_features
+    = f.text_field :additional_features, :class => "input-xxlarge"
     
   = f.label :description
   = f.text_area :description, :class => "wysihtml5"  
