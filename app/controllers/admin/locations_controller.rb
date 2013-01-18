@@ -1,7 +1,7 @@
 class Admin::LocationsController < Admin::BaseController
   
   before_filter :find_locations, :only => [:index, :create]
-  before_filter :find_location, :only => [:edit, :update]
+  before_filter :find_location, :only => [:edit, :update, :destroy]
   
   def index
     @location = Location.new
@@ -29,6 +29,12 @@ class Admin::LocationsController < Admin::BaseController
       flash[:alert] = "Location have not been updated."
       render :action => "edit"
     end
+  end
+  
+  def destroy
+    @location.destroy
+    flash[:notice] = "Location have been destroyed."
+    redirect_to admin_locations_path
   end
   
 private

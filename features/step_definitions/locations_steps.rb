@@ -1,5 +1,10 @@
 #encoding: utf-8
 
+Допустим /^на сайт были добавлены следующие регионы:$/ do |locations_table|
+  locations_table.map_headers!(/Название региона/ => :name)
+  locations_table.hashes.each { |location_params| FactoryGirl.create(:location, location_params) }
+end
+
 Допустим /^на сайт был добавлен регион "(.*?)"$/ do |location_name|
   location(:name => location_name)
 end
@@ -19,4 +24,8 @@ end
 
 То /^я не должен видеть регион "(.*?)"$/ do |location_name|
   step %Q{я не должен видеть "#{location_name}"}
+end
+
+То /^я не должен видеть этот регион$/ do
+  step %Q{я не должен видеть "#{location.name}"}
 end
