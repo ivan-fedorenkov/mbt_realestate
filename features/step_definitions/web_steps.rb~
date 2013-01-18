@@ -57,7 +57,7 @@ end
   rescue => error_h3
   end
   
-  if error_legend and error_h3
+  if error_legend and error_h2
     raise "Название должно было измениться на `#{new_name}`, но не изменилось"
   end
 end

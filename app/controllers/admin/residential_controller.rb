@@ -1,8 +1,8 @@
 class Admin::ResidentialController < Admin::BaseController
-  before_filter :find_residential, :only => [:show]
+  before_filter :find_residential, :only => [:show, :edit, :update]
   
   def index
-    @residentials = Residential.all
+    @residential = Residential.all
   end
   
   def new
@@ -17,6 +17,19 @@ class Admin::ResidentialController < Admin::BaseController
     else
       flash[:alert] = "Residential has not been created."
       render :action => "new"
+    end
+  end
+  
+  def edit
+  end
+  
+  def update
+    if @residential.update_attributes(params[:residential])
+      flash[:notice] = "Residential has been updated."
+      redirect_to admin_residential_path(@residential)
+    else
+      flash[:alert] = "Residential has not been updated."
+      render :action => "edit"
     end
   end
   

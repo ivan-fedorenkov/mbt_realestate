@@ -4,7 +4,7 @@ describe ResidentialController do
 
   describe "find_residential filter" do
   
-    controller(ResidentialController) do
+    controller(Admin::ResidentialController) do
       def show
         render :nothing => true
       end

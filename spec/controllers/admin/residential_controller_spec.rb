@@ -15,7 +15,7 @@ describe Admin::ResidentialController do
       end
     end
     
-    {:show => :get}.each do |action, method|
+    {:show => :get, :edit => :get}.each do |action, method|
       it "should find the residential for #{action} action" do
         residential = double("a residential record")
         residential.stub(:id).and_return(double("residential id"))

@@ -2,3 +2,13 @@
   .span12
     .pull-right
       = link_to "New Residential", new_admin_residential_path, :class => 'btn btn-primary'
+      
+.row
+  .span12
+    %ol
+      - @residential.each do |r|
+        %li
+          %span[r]
+            = link_to r.title, admin_residential_path(r)
+            = link_to "Edit", edit_admin_residential_path(r), :class => 'btn btn-mini'
+            = link_to "Delete", admin_residential_path(r), :method => :delete, :confirm => "Are you sure?", :class => 'btn btn-mini btn-danger'

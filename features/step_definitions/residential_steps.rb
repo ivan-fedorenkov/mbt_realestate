@@ -6,8 +6,6 @@ end
 
 Когда /^я изменяю название предложения на "(.*?)"$/ do |new_residential_name|
   step %Q{я заполняю поле "Название" значением "#{new_residential_name}"}
-  
-  submit_form!
 end
 
 То /^я должен видеть все добавленные дополнительные характеристики$/ do
@@ -19,4 +17,9 @@ end
       feature_elements.each { |element| page.should have_content(element) }
     end
   end
+end
+
+Когда /^я перехожу по ссылке "(.*?)" предложения о жилье "(.*?)"$/ do |link_title, residential_title|
+  @residential = Residential.where(:title => residential_title).first
+  find("#residential_#{@residential.id}").find_link(link_title).click
 end

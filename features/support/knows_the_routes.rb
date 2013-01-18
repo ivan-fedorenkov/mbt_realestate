@@ -20,15 +20,17 @@ module KnowsTheRoutes
         admin_article_path(article)
       when /страниц(е|у) статьи "(.*?)"/
         article_path(Article.where(:title => $2).first)
-        
+      
+      when /странице этого предложения о жилье панели администратора/
+        admin_residential_path(residential)
       when /страниц(е|у) предложения о жилье "(.*?)" панели администратора/
 	      admin_residential_path(Residential.where(:title => $2).first)       
       when /странице редактирования предложений о жилье/
         residential_index_path
       when /странице добавления предложения о жилье/
         new_admin_residential_path
-      when /странице редактирования предложения "(.*?)"/
-        edit_residential_path(Residential.where(:title => $1).first)
+      when /странице редактирования этого предложения о жилье/
+        edit_admin_residential_path(residential)
       when /странице редактирования фотографий предложения о жилье "(.*?)"/
         residential_pictures_path(Residential.where(:title => $1).first)
         
