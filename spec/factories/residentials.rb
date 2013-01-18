@@ -4,10 +4,15 @@ FactoryGirl.define do
   factory :residential do
     title "Residential title"
     residential_type :detached_house
-    description "Some very interesting residential description"
+    title_deed_ready false
+    parking 1
+    latitude 1.0
+    longitude 1.0
+    distance_to_sea 100
+    opened_veranda 100.0
     levels 1
     bedrooms 1
-    covered_area 1
+    covered_area 200.0
     baths 1
     plot 1
     price 1
