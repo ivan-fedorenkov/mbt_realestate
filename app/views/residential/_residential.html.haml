@@ -6,9 +6,7 @@
     - else
       %span{:class => ['label']} Title deed not ready
   .span3.text-right
-    %h2 
-      &euro;
-      = display_price(residential.price)
+    %h2= display_price(residential.price)
 
 - if residential.pictures
   .row
