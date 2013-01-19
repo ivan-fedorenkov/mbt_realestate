@@ -21,6 +21,8 @@ module KnowsTheForms
         "name"
       when /Название/
         "title"
+      when /Месторасположение/
+        "location"
       when /Текст/
         "text" 
       when /Позиция/

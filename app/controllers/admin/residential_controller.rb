@@ -1,5 +1,6 @@
 class Admin::ResidentialController < Admin::BaseController
   before_filter :find_residential, :only => [:show, :edit, :update]
+  before_filter :find_locations, :except => [:index, :show]
   
   def index
     @residential = Residential.all
@@ -44,6 +45,10 @@ private
       flash[:alert] = "Requested residential could not be found."
       redirect_to admin_residential_index_path
     end
+  end
+  
+  def find_locations
+    @locations = Location.all
   end
   
 end

@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20130118193802) do
-=======
-ActiveRecord::Schema.define(:version => 20130120130110) do
->>>>>>> going to work
+ActiveRecord::Schema.define(:version => 20130120130111) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -80,6 +76,9 @@ ActiveRecord::Schema.define(:version => 20130120130110) do
     t.integer  "distance_to_sea",     :default => 0
     t.float    "opened_veranda",      :default => 0.0
     t.boolean  "title_deed_ready",    :default => false
+    t.integer  "location_id"
   end
+
+  add_index "residentials", ["location_id"], :name => "index_residentials_on_location_id"
 
 end

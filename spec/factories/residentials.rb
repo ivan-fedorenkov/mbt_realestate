@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :residential do
     title "Residential title"
     residential_type :detached_house
-    title_deed_ready false
+    title_deed_ready { true }
     parking 1
     latitude 1.0
     longitude 1.0
@@ -18,5 +18,6 @@ FactoryGirl.define do
     price 1
     private_pool false
     communal_pool false
+    location { FactoryGirl.create(:location) }
   end
 end
