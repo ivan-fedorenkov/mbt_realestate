@@ -23,3 +23,7 @@ end
   @residential = Residential.where(:title => residential_title).first
   find("#residential_#{@residential.id}").find_link(link_title).click
 end
+
+Допустим /^к предложению о жилье прикреплена фотография "(.*?)"$/ do |picture_file|
+  residential.pictures << picture(:imageable => residential)
+end

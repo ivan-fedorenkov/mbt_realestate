@@ -6,6 +6,8 @@ module KnowsTheForms
     return case form_name
       when /входа в учётную запись/
         "//div[@id = 'navigation-panel']"
+      when /добавления фотографий/
+        "//*[@id = 'add-picture-form']"
       else
         "//div[@id = 'content']"
     end

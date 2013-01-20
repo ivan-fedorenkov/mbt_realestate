@@ -12,10 +12,16 @@ class Admin::PicturesController < Admin::BaseController
     @picture = @imageable.pictures.build(params[:picture])
     if @picture.save
       flash[:notice] = "New image have been added."
-      redirect_to :id => nil
+      redirect_to [:admin, @imageable, :pictures]
     else
       render :action => "index"
     end    
+  end
+  
+  def delete_all
+    Picture.destroy_all(:id => params[:pictures_ids])
+    flash[:notice] = "Images have been removed."
+    redirect_to [:admin, @imageable, :pictures]
   end
   
 private 

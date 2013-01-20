@@ -6,7 +6,7 @@ module KnowsThePageStructure
       when /списке предложений о жилье/
         "#residential-list"
       when /списке фотографий/
-        "#photo-list"
+        "#pictures-list"
       when /в списке статей/
         "#articles-list"
       when /зоне нотификаций/

@@ -1,12 +1,20 @@
 .row
   .span12
-    %legend Existing Pictures
-    = form_tag 
-    #pictures-list
-      - @pictures.each do |picture|
-        %span[picture]
-          = image_tag picture.picture.url(:thumb)
-          = check_box_tag "picture_#{picture.id}", "1", false, :display => :none
+    %legend 
+      = link_to @imageable.class.to_s, [:admin, @imageable] 
+      = "/ Existing Pictures"
+    = form_tag [:delete_all, :admin, @imageable, :pictures], :method => :delete do
+      .row    
+        .span2.offset10
+          = submit_tag "Delete Selected", :confirm => "Are you sure", :class => 'btn btn-danger'
+      .row
+        .span10
+          #pictures-list
+            - @pictures.each do |picture|
+              %span[picture]
+                = image_tag picture.picture.url(:thumb)
+                = check_box_tag "pictures_ids", "#{picture.id}"
+ 
 .row
   .span12
     %legend Add a new image

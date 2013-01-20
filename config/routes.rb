@@ -8,11 +8,10 @@ MbtRealestate::Application.routes.draw do
     root :to => 'base#index'
     resources :articles
     resources :residential do
-      resources :pictures
-    end
-    resources :pictures do
-      collection do
-        delete :delete_all
+      resources :pictures do
+        collection do
+          delete :delete_all
+        end
       end
     end
   end

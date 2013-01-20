@@ -37,8 +37,8 @@ module KnowsTheRoutes
         edit_admin_residential_path(residential)
         
       when /странице редактирования фотографий предложения о жилье "(.*?)"/
-        residential_pictures_path(Residential.where(:title => $1).first)
-      when /странице редактирования фотографий этого предложения о жилье/
+        admin_residential_pictures_path(Residential.where(:title => $1).first)
+      when /страниц(е|у) редактирования фотографий этого предложения о жилье/
         admin_residential_pictures_path(residential)
         
       when /странице входа в учётную запись/

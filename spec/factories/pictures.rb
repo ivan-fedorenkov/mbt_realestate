@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :picture do
-    picture "MyString"
+    picture { File.open(File.join(Rails.root,"spec","fixtures","test_picture.jpg")) }
+    imageable { FactoryGirl.create(:residential) }
   end
 end

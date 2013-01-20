@@ -35,6 +35,10 @@ end
   click_link link_title
 end
 
+Когда /^(?:я )?нажимаю "(.*?)"$/ do |button_title|
+  click_button button_title
+end
+
 Допустим /^перехожу в раздел (.*)$/ do |section_human_name|
   within('#navigation-panel') { click_link get_section_link_title(section_human_name) }
 end
