@@ -31,16 +31,18 @@ module KnowsTheRoutes
         residential_index_path
       when /странице добавления предложения о жилье/
         new_admin_residential_path
-      when /странице редактирования предложения о жилье "(.*?)"/
-        edit_admin_residential_path(Residential.where(:title => $1).first)
+      when /страниц(е|у) редактирования предложения о жилье "(.*?)"/
+        edit_admin_residential_path(Residential.where(:title => $2).first)
       when /странице редактирования этого предложения о жилье/
         edit_admin_residential_path(residential)
+        
       when /странице редактирования фотографий предложения о жилье "(.*?)"/
         residential_pictures_path(Residential.where(:title => $1).first)
+      when /странице редактирования фотографий этого предложения о жилье/
+        admin_residential_pictures_path(residential)
         
       when /странице входа в учётную запись/
         new_admin_session_path
-              
       else
         raise "Путь `#{page_human_name}` не найден. Необходимо добавить путь в файл `knows_the_routes.rb`"        
     end

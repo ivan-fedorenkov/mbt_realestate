@@ -1,0 +1,13 @@
+.row
+  .span12
+    %legend Existing Pictures
+    = form_tag 
+    #pictures-list
+      - @pictures.each do |picture|
+        %span[picture]
+          = image_tag picture.picture.url(:thumb)
+          = check_box_tag "picture_#{picture.id}", "1", false, :display => :none
+.row
+  .span12
+    %legend Add a new image
+    = render "form"

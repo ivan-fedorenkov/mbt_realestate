@@ -1,6 +1,9 @@
-.pull-right
-  = link_to "Back to list", admin_residential_index_path, :class => 'btn'
-  = link_to "Edit", edit_admin_residential_path(@residential), :class => 'btn'
-  = link_to "Delete", admin_residential_path(@residential), :method => :delete, :confirm => "Are you sure?", :class => 'btn btn-danger'
+.row
+  .span12
+    .pull-right
+      = link_to "Back to list", admin_residential_index_path, :class => 'btn'
+      = link_to "Edit", edit_admin_residential_path(@residential), :class => 'btn'
+      = link_to "Manage Pictures", admin_residential_pictures_path(@residential), :class => 'btn'
+      = link_to "Delete", admin_residential_path(@residential), :method => :delete, :confirm => "Are you sure?", :class => 'btn btn-danger'
 
 = render :partial => 'residential/residential', :object => @residential

@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-Допустим /^добавляю фотографию "(.*?)"(?: в форму (.*?))?$/ do |picture_path, form|
+Допустим /^(?:я )?добавляю фотографию "(.*?)"(?: в форму (.*?))?$/ do |picture_path, form|
   attach_file("Picture", File.expand_path(picture_path))
   submit_form! form
 end

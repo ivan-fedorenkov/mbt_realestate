@@ -1,4 +1,4 @@
-class PicturesController < ApplicationController
+class Admin::PicturesController < Admin::BaseController
   
   before_filter :find_imageable
   
@@ -8,19 +8,20 @@ class PicturesController < ApplicationController
   end
   
   def create
+    @pitcures = @imageable.pictures
     @picture = @imageable.pictures.build(params[:picture])
     if @picture.save
       flash[:notice] = "New image have been added."
       redirect_to :id => nil
     else
-      render :action => "show"
+      render :action => "index"
     end    
   end
   
 private 
   def find_imageable
     params.each do |name, value|
-      if name =~ /(.+)_id$/
+      if name =~ /(residential)_id$/
         @imageable = $1.classify.constantize.find(value)
         return
       end
