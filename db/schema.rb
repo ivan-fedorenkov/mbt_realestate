@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130110101509) do
+ActiveRecord::Schema.define(:version => 20130120130110) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -53,10 +53,9 @@ ActiveRecord::Schema.define(:version => 20130110101509) do
   create_table "residentials", :force => true do |t|
     t.string   "title"
     t.string   "residential_type"
-    t.text     "description"
     t.integer  "levels",              :default => 0
     t.integer  "bedrooms",            :default => 0
-    t.integer  "covered_area",        :default => 0
+    t.float    "covered_area",        :default => 0.0
     t.integer  "baths",               :default => 0
     t.integer  "plot",                :default => 0
     t.integer  "price",               :default => 0
@@ -65,6 +64,12 @@ ActiveRecord::Schema.define(:version => 20130110101509) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "additional_features"
+    t.integer  "parking",             :default => 0
+    t.float    "latitude",            :default => 0.0
+    t.float    "longitude",           :default => 0.0
+    t.integer  "distance_to_sea",     :default => 0
+    t.float    "opened_veranda",      :default => 0.0
+    t.boolean  "title_deed_ready",    :default => false
   end
 
 end
