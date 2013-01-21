@@ -6,9 +6,11 @@ class Residential < ActiveRecord::Base
   attr_accessible :baths, :bedrooms, :communal_pool, 
     :covered_area, :levels, :plot, :price, 
     :private_pool, :title, :residential_type,
-    :additional_features
+    :additional_features, :title_deed_ready, 
+    :location_id, :latitude, :longitude, :opened_veranda, 
+    :distance_to_sea, :parking
   
-  validates :title, :location, :title_deed_ready, :presence => true
+  validates :title, :location, :presence => true
   validates :price,:levels,:bedrooms,:baths,:plot,:distance_to_sea,:parking,
     :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
   validates :latitude,:longitude,:covered_area,:opened_veranda,

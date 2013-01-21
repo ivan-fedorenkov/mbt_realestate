@@ -9,7 +9,7 @@
   .row
     .span4
       = f.label :title_deed_ready
-      = f.select :communal_pool, [["Yes", true],["No", false]]
+      = f.select :title_deed_ready, [["Yes", true],["No", false]]
     .span4
       = f.label :price
       = f.text_field :price, :class => "input-small"
@@ -45,7 +45,9 @@
     .span2
       = f.label :bedrooms
       = f.text_field :bedrooms, :class => "input-mini"
-    
+    .span2
+      = f.label :parking
+      = f.text_field :parking, :class => "input-mini"
     .span2
       = f.label :baths
       = f.text_field :baths, :class => "input-mini"

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Residential do
   describe "validations" do
-    [:title, :title_deed_ready, :location].each do |field|
+    [:title, :location].each do |field|
       it "#{field} should not be empty" do
         create_should_raise_record_invalid(:residential, field => nil)
       end

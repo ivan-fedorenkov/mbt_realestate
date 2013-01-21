@@ -20,7 +20,7 @@ module KnowsTheForms
       when /Наименование/
         "name"
       when /Название/
-        "title"
+        "[title]"
       when /Месторасположение/
         "location"
       when /Текст/
@@ -53,6 +53,18 @@ module KnowsTheForms
         "email"
       when /Password/
         "password"
+      when /Широта/
+        "latitude"
+      when /Долгота/
+        "longitude"
+      when /Расстояние до моря/
+        "distance_to_sea"
+      when /Нотариальный акт готов/
+        "title_deed_ready"
+      when /Площадь веранды/
+        "opened_veranda"
+      when /Парковочных мест/
+        "parking"
       else
         raise "Поле формы `#{field_human_name}` не найдено. Добавьте его в файл `knows_the_forms.rb`"
     end

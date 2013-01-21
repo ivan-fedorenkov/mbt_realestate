@@ -15,9 +15,6 @@
 .row
   %br/
   .span8
-    - unless residential.description.empty?
-      %h4 Description
-      %p= raw residential.description 
     - @residential.features.map do |feature_title, feature_elements|
       .feature
         %h4= feature_title
