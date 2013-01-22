@@ -40,6 +40,10 @@ module ApplicationHelper
     return price
   end
   
+  def display_symbolize_constant(object, field)
+    object.class.send("get_#{field.to_s}_values".to_sym).send(:[], object.send(field))  
+  end
+  
   def resource_name
     :admin
   end
