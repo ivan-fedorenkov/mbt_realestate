@@ -37,11 +37,12 @@ module ApplicationHelper
         current_position -= 1
       end while current_position > 0
     end
-    return price.to_s.html_safe
+    
+    return "&euro; #{price}".html_safe
   end
   
   def display_symbolize_constant(object, field)
-    object.class.send("get_#{field.to_s}_values".to_sym).send(:[], object.send(field)).html_safe
+    object.class.send("get_#{field.to_s}_values".to_sym).send(:[], object.send(field))
   end
   
   def resource_name
