@@ -45,6 +45,32 @@ module ApplicationHelper
     object.class.send("get_#{field.to_s}_values".to_sym).send(:[], object.send(field))
   end
   
+  
+  def static_google_map_tag(args)
+    map = "<img src='@link?@api_key@params@markers'>"
+    map.gsub!("@link", "http://maps.googleapis.com/maps/api/staticmap")
+    map.gsub!("@api_key", Rails.configuration.google_maps_api_key)
+    
+    params = ""
+    params += "&center=#{args[:center]}" if args[:center]
+    params += "&size=#{args[:size]}" if args[:size]
+    params += "&zoom=#{args[:zoom]}" if args[:zoom]
+    params += "&sensor=#{args[:sensor] or false}"
+    
+    map.gsub!("@params", params)
+   
+    
+    markers_args = args[:markers]
+    if markers_args
+      markers = "&markers=#{markers_args[:style]}|#{markers_args[:locations]}"
+      map.gsub!("@markers", markers)
+    else
+      map.gsub!("@markers","")
+    end
+    
+    return map.html_safe
+  end
+  
   def resource_name
     :admin
   end

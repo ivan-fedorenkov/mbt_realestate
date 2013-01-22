@@ -1,5 +1,7 @@
 class Residential < ActiveRecord::Base
   
+  include Coordinate
+  
   has_many :pictures, :as => :imageable
   belongs_to :location
   

@@ -1,0 +1,1 @@
+MbtRealestate::Application.config.google_maps_api_key = 'AIzaSyBQ0mNVE4yDPN6kfMdCcrEr4SwimxV5t7U'
