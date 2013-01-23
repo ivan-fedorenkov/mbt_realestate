@@ -3,14 +3,16 @@ class ActiveRecord::Base
     fields.each do |field|
       class_eval %Q{        
         def #{field}=(value)
-          #{field}_from, #{field}_to = value.split(/\s*-\s*/)
+          from, to = value.to_s.split(/\s*-\s*/)
+          self.send("#{field}_from=".to_sym, from)
+          self.send("#{field}_to=", to)
         end
         
         def #{field}
-          if(#{field}_to)
-            #{field}_from + ' - ' + #{field}_to
+          if(self.send("#{field}_to"))
+            self.send("#{field}_from").to_s + " - " + self.send("#{field}_to").to_s
           else
-            #{field}_from
+            self.send("#{field}_from").to_s
           end  
         end
       }

@@ -11,7 +11,8 @@ describe Lot do
     [:latitude,
      :longitude,
      :plot,
-     :price].each do |field|
+     :price_from,
+     :price_to].each do |field|
       it "#{field} should be a number" do
         create_should_raise_record_invalid(:residential, field => "not a number")
       end
@@ -20,7 +21,7 @@ describe Lot do
       end
     end
     
-    [:price,:plot].each do |field|
+    [:price_from, :price_to,:plot].each do |field|
       it "#{field} should allow any positive number" do
         create_should_not_raise_record_invalid(:residential, field => 1)
       end

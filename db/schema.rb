@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123163537) do
+ActiveRecord::Schema.define(:version => 20130123163538) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(:version => 20130123163537) do
     t.float    "covered_area",        :default => 0.0
     t.integer  "baths",               :default => 0
     t.integer  "plot",                :default => 0
-    t.integer  "price",               :default => 0
     t.boolean  "private_pool",        :default => false
     t.boolean  "communal_pool",       :default => false
     t.datetime "created_at",                             :null => false
@@ -69,6 +68,8 @@ ActiveRecord::Schema.define(:version => 20130123163537) do
     t.boolean  "title_deed_ready",    :default => false
     t.integer  "location_id"
     t.string   "type"
+    t.integer  "price_from"
+    t.integer  "price_to"
   end
 
   add_index "lots", ["location_id"], :name => "index_residentials_on_location_id"
