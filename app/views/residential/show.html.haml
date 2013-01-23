@@ -1,8 +1,8 @@
+- content_for :additional_js do
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=#{Rails.configuration.google_maps_api_key}&sensor=false"></script>
+
 #mapModal.modal.hide
-  .modal-header
-    %button{:type => 'button', :class => 'close', :data => {:dismiss => 'modal'}} Close
-  .modal-body
-    <iframe width="620" height="414" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=51.461311,+-0.303742&amp;aq=&amp;sll=51.587136,-0.085938&amp;sspn=0.009599,0.027874&amp;ie=UTF8&amp;t=m&amp;ll=51.461334,-0.303755&amp;spn=0.022139,0.053129&amp;z=14&amp;output=embed"></iframe>
+  #mapModalMap.modal-body
 
 .row
   .span8
@@ -11,6 +11,8 @@
     #property_map.center
       %a{:data => {:toggle => 'modal'}, :href => '#mapModal'}
         = static_google_map_tag(:center => @residential.lat_long, :size => '250x250', :zoom => 15, :markers => {:style => 'color:red', :locations => @residential.lat_long} )
+      = hidden_field_tag 'mapModalLat', @residential.latitude
+      = hidden_field_tag 'mapModalLong', @residential.longitude
       %p
         %br/
         %a{:data => {:toggle => 'modal'}, :href => '#mapModal'} View larger map

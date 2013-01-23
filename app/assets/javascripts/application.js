@@ -17,4 +17,5 @@
 //= require wisyhtml5
 //= require jquery.aw-showcase/jquery.aw-showcase.min
 //= require global
+//= require maps
 //= require_tree .
