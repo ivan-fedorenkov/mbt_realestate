@@ -5,6 +5,7 @@ FactoryGirl.define do
     title "Residential title"
     lot_internal_type :detached_house
     title_deed_ready { true }
+    include_vat { true }
     parking 1
     latitude 1.0
     longitude 1.0

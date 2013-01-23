@@ -1,10 +1,6 @@
 .row
   .span5
     %h3= investment.title
-    - if investment.title_deed_ready
-      %span{:class => ['label','label-success']} Title deed ready
-    - else
-      %span{:class => ['label']} Title deed not ready
     - if investment.include_vat
       %span{:class => ['label','label-success']} VAT included
     - else
