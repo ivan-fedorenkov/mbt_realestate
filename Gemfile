@@ -32,10 +32,14 @@ group :test do
 end
 
 group :development do
-  gem 'rb-inotify', '~> 0.8.8'
   gem 'guard'
   gem 'spork', '~> 1.0rc'
   gem 'guard-spork'
+  gem 'guard-cucumber'
+  gem 'guard-rspec'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
 end
 
 group :test, :development do
