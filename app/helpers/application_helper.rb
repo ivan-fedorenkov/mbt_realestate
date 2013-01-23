@@ -24,44 +24,7 @@ module ApplicationHelper
     
     return flash_messages.html_safe
   end
-  
-  def display_price(price)
-    if(price.to_i >= 1000)
-      price = price.to_s
-      price_length = price.length
-      current_position = price_length - 3
-      begin
-        if (((price_length - current_position) % 3) == 0)
-          price = price.insert(current_position, ",")
-        end 
-        current_position -= 1
-      end while current_position > 0
-    end
-    
-    return "&euro; #{price}".html_safe
-  end
 
-  def display_square_meters(string)
-    if string && !string.to_s.empty?
-      return "#{string} m<sup>2</sup>".html_safe
-    else
-      return ""
-    end
-  end
-  
-  def display_symbolize_constant(object, field)
-    object.class.send("get_#{field.to_s}_values".to_sym).send(:[], object.send(field))
-  end
-
-  def display_boolean_field(object, field, true_message = "yes", false_message = "no")
-    if(object.send(field))
-      true_message
-    else
-      false_message
-    end
-  end
-  
-  
   def static_google_map_tag(args)
     map = "<img src='@link?@api_key@params@markers'>"
     map.gsub!("@link", "http://maps.googleapis.com/maps/api/staticmap")
