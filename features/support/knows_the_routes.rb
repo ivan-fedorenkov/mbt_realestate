@@ -26,7 +26,7 @@ module KnowsTheRoutes
       when /страниц(е|у) предложения о жилье "(.*?)" панели администратора/
 	      admin_residential_path(Residential.where(:title => $2).first)
       when /страниц(е|у) предложения о жилье "(.*?)"/
-        residential_path(Residential.where(:title => $2).first)
+        lot_path(Residential.where(:title => $2).first)
       when /странице редактирования предложений о жилье/
         residential_index_path
       when /странице добавления предложения о жилье/

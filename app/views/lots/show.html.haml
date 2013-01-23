@@ -8,13 +8,13 @@
 
 .row
   .span8
-    = render :partial => 'residential', :object => @residential
+    = render @lot
   #portamento_container.span4.pull-right
     #property_map.center
       %a{:data => {:toggle => 'modal'}, :href => '#mapModal'}
-        = static_google_map_tag(:center => @residential.lat_long, :size => '250x250', :zoom => 15, :markers => {:style => 'color:red', :locations => @residential.lat_long} )
-      = hidden_field_tag 'mapModalLat', @residential.latitude
-      = hidden_field_tag 'mapModalLong', @residential.longitude
+        = static_google_map_tag(:center => @lot.lat_long, :size => '250x250', :zoom => 15, :markers => {:style => 'color:red', :locations => @lot.lat_long} )
+      = hidden_field_tag 'mapModalLat', @lot.latitude
+      = hidden_field_tag 'mapModalLong', @lot.longitude
       %p
         %br/
         %a{:data => {:toggle => 'modal'}, :href => '#mapModal'} View larger map

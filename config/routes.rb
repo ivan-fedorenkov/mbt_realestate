@@ -34,6 +34,6 @@ MbtRealestate::Application.routes.draw do
   end
   
   resources :articles
-  resources :residential
+  resources :lots
   
 end
