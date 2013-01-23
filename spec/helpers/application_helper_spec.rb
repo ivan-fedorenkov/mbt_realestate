@@ -26,5 +26,15 @@ describe ApplicationHelper do
       display_boolean_field(object, :field, "true message", false_message).should eql(false_message)
     end
   end
-  
+
+  describe "display_square_meters" do
+    it "should add a square meters html appendix at the end of a string" do
+      string = "22"
+      display_square_meters(string).should eql("22 m<sup>2</sup>")
+    end
+    it "should not add anything if string is nil or empty" do
+      display_square_meters(nil).should eql("")
+      display_square_meters("").should eql("")
+    end
+  end
 end

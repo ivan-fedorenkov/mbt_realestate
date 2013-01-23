@@ -40,6 +40,14 @@ module ApplicationHelper
     
     return "&euro; #{price}".html_safe
   end
+
+  def display_square_meters(string)
+    if string && !string.to_s.empty?
+      return "#{string} m<sup>2</sup>".html_safe
+    else
+      return ""
+    end
+  end
   
   def display_symbolize_constant(object, field)
     object.class.send("get_#{field.to_s}_values".to_sym).send(:[], object.send(field))
