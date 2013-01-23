@@ -2,6 +2,8 @@
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=#{Rails.configuration.google_maps_api_key}&sensor=false"></script>
 
 #mapModal.modal.hide
+  .modal-header
+    %a{:class => 'close', :data => {:dismiss => 'modal'}} Close
   #mapModalMap.modal-body
 
 .row
