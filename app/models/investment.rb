@@ -7,6 +7,8 @@ class Investment < Lot
     :location_id, :latitude, :longitude, :opened_veranda, 
     :distance_to_sea, :parking, :description, :delivery_date
 
+  validates :delivery_date, :presence => true
+
   symbolize :lot_internal_type, :in => 
     {:detached_house => 'Detached House',
      :semi_detached => 'Semi Detached',
