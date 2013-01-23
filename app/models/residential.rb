@@ -1,4 +1,4 @@
-class Residential < ActiveRecord::Base
+class Residential < Lot
   
   include Coordinate
   

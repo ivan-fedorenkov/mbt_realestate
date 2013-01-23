@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130120130111) do
+ActiveRecord::Schema.define(:version => 20130123163537) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -47,16 +47,7 @@ ActiveRecord::Schema.define(:version => 20130120130111) do
 
   add_index "locations", ["name"], :name => "index_locations_on_name", :unique => true
 
-  create_table "pictures", :force => true do |t|
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
-  end
-
-  create_table "residentials", :force => true do |t|
+  create_table "lots", :force => true do |t|
     t.string   "title"
     t.string   "residential_type"
     t.integer  "levels",              :default => 0
@@ -77,8 +68,18 @@ ActiveRecord::Schema.define(:version => 20130120130111) do
     t.float    "opened_veranda",      :default => 0.0
     t.boolean  "title_deed_ready",    :default => false
     t.integer  "location_id"
+    t.string   "type"
   end
 
-  add_index "residentials", ["location_id"], :name => "index_residentials_on_location_id"
+  add_index "lots", ["location_id"], :name => "index_residentials_on_location_id"
+
+  create_table "pictures", :force => true do |t|
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
 
 end
