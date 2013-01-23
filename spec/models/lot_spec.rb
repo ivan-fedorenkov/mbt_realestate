@@ -23,9 +23,7 @@ describe Lot do
       end
     end
     
-    [:latitude,
-     :longitude,
-     :plot_from,
+    [:plot_from,
      :plot_to,
      :price_from,
      :price_to,
@@ -73,6 +71,18 @@ describe Lot do
      :opened_veranda_from, :opened_veranda_to].each do |field|
       it "#{field} should allow any positive floating point number" do
         create_should_not_raise_record_invalid(:lot, field => 1.0)
+      end
+    end
+
+    [:latitude,:longitude].each do |field|
+      it "#{field} should be a number" do
+        create_should_raise_record_invalid(:lot, field => "not a number")
+      end
+      it "#{field} should allow any negative floating point number" do
+        create_should_not_raise_record_invalid(:lot, field => -1.0)
+      end
+      it "#{field} should allow zero value" do
+        create_should_not_raise_record_invalid(:lot, field => 0)
       end
     end
     

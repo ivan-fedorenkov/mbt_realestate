@@ -21,12 +21,13 @@ class Lot < ActiveRecord::Base
     :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 },
     :allow_nil => true
 
-  validates :latitude, :longitude,
-    :covered_area_from, :covered_area_to,
+  validates :covered_area_from, :covered_area_to,
     :opened_veranda_from, :opened_veranda_to,
     :numericality => { :greater_than => 0.0 },
     :allow_nil => true
 
+  validates :latitude, :longitude,
+    :numericality => true, :allow_nil => true
   
   validates :additional_features, 
     :format => { :with => Features.validation_format }, 
