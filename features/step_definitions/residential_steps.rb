@@ -1,5 +1,25 @@
 #encoding: utf-8
 
+Допустим /^на сайте размещены следующие предложения о жилье:$/ do |residentials|
+  residentials.map_headers!(
+    "Название" => :title, 
+    "Месторасположение" => :location, 
+    "Тип жилья" => :lot_internal_type, 
+    "Цена" => :price)
+
+  residentials.hashes.each do |residential_options|
+    location = Location.find_by_name(residential_options[:location])
+    residential_options[:location] = location
+    FactoryGirl.create(:residential, residential_options)
+  end
+
+end
+
+Допустим /^я хочу найти предложение о жилье .*?$/ do
+end
+
+
+
 Допустим /^на сайте размещено преложение о жилье "(.*?)"$/ do |residential_title|
   @residential = FactoryGirl.create(:residential, :title => residential_title)
 end
@@ -26,4 +46,31 @@ end
 
 Допустим /^к предложению о жилье прикреплена фотография "(.*?)"$/ do |picture_file|
   residential.pictures << picture(:imageable => residential)
+end
+
+То /^я должен видеть (.*?) в результатах поиска$/ do |residential_titles|
+  case residential_titles 
+    when "Все предложения о жилье"
+      Residential.all.each { |residential| page.should have_content(residential.title) }
+    when "Ни одного предложеня о жилье"
+      Residential.all.each { |residential| page.should_not have_content(residential.title) }
+    when /Все, кроме: (.*)/
+      residential_that_i_should_not_see = $1.split(/\s*,\s*/)
+      Residential.all.each do |residential|
+        if residential_titles.include? residential.title
+          page.should_not have_content(residential.title)
+        else
+          page.should have_content(residential.title)
+        end
+      end
+    else
+      residential_titles = residential_titles.split(/\s*,\s*/)
+      Residential.all.each do |residential| 
+        if residential_titles.include? residential.title
+          page.should have_content(residential.title)
+        else
+          page.should_not have_content(residential.title)
+        end
+      end
+  end
 end

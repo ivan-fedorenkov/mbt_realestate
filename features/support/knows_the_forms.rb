@@ -10,6 +10,8 @@ module KnowsTheForms
         "//*[@id = 'add-picture-form']"
       when /добавления региона/
         "//*[@id = 'add-location-form']"
+      when /поиска предложений о жилье/
+        "//*[@id = 'residential-search-form']"
       else
         "//div[@id = 'content']"
     end
@@ -22,15 +24,19 @@ module KnowsTheForms
       when /Название/
         "[title]"
       when /Месторасположение/
-        "location"
+        ["location", :select_box]
       when /Текст/
         "text" 
       when /Позиция/
         "position"
       when /Стоимость/
         "price"
+      when /Цена от/
+        ["price_from", :select_box]
+      when /Цена до/
+        ["price_to", :select_box]
       when /Тип жилья/
-        "lot_internal_type"
+        ["lot_internal_type", :select_box]
       when /Тип земли/
         "lot_internal_type"
       when /Количество этажей/

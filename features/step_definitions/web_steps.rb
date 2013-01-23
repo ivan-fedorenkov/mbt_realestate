@@ -1,5 +1,8 @@
 #encoding: utf-8
 
+Допустим /^я \- обычный пользователь сайта$/ do
+end
+
 Допустим /^(?:я )?(?:нахожусь на|перехожу на|пытаюсь открыть) (.*)$/ do |page_human_name|
   visit(get_route(page_human_name))
 end
@@ -8,17 +11,22 @@ end
   current_path.should eql(get_route(page_human_name))
 end
 
-Когда /^(?:я )?заполняю поля формы(?: (.*?))? следующими данными:$/ do |form, fields_table|
+Когда /^(?:я )?заполняю поля формы(?: (.*?))? следующими (?:данными|значениями):$/ do |form, fields_table|
   fields_table.raw.each do |field_row|
-    field = get_form_field(field_row[0])
+    field, field_type = get_form_field(field_row[0])
     if (field.end_with? "date")
       day,month,year = field_row[1].split(".")
       find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{field}(1i)')]").set(year.to_i) if year
       find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{field}(2i)')]").set(month.to_i) if month
       find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{field}(3i)')]").set(day.to_i) if day
     else
-      field_row[1] = "true" if(field_row[1] =~ /^v$/)
-      find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{field}')]").set(field_row[1]) if field_row[1]
+      case field_type
+      when :select_box
+        find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{field}')]/option[text() = '#{field_row[1]}']").select_option if field_row[1]
+      else
+        field_row[1] = "true" if(field_row[1] =~ /^v$/)
+        find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{field}')]").set(field_row[1]) if field_row[1]
+      end
     end
   end
 

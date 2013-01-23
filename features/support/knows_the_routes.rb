@@ -41,6 +41,8 @@ module KnowsTheRoutes
       when /страниц(е|у) редактирования фотографий этого предложения о жилье/
         admin_residential_pictures_path(residential)
         
+      when /странице результатов поиска предложений о жилье/
+        search_lots_path
         
       when /странице добавления нового предложения о продаже земли/
         new_admin_plot_path
