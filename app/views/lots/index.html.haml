@@ -1,0 +1,3 @@
+%ol
+  - @lots.each do |lot|
+    %li= link_to "#{lot.title} (#{lot.type})", lot_path(lot)

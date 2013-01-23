@@ -2,7 +2,7 @@ MbtRealestate::Application.routes.draw do
 
   get "plots/index"
 
-  root :to => 'articles#index'
+  root :to => 'lots#index'
   
   devise_for :admins
   
