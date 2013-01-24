@@ -33,4 +33,13 @@ describe Lot do
     end
     
   end
+  
+  describe "methods" do
+    describe "lat_long" do
+      it "should return comma separated latitude and longitude string" do
+        lot = FactoryGirl.create(:lot, :latitude => 1.0, :longitude => 2.0)
+        lot.lat_long.should eql("1.0,2.0")
+      end
+    end
+  end
 end
