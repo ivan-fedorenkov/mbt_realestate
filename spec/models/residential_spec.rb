@@ -2,20 +2,12 @@ require 'spec_helper'
 
 describe Residential do
   describe "validations" do
-    [:title, :location].each do |field|
-      it "#{field} should not be empty" do
-        create_should_raise_record_invalid(:residential, field => nil)
-      end
-    end
- 
-    [:price,
-     :levels,
+
+    [:levels,
      :bedrooms,
-     :baths,:plot,
+     :baths,
      :distance_to_sea,
      :parking,
-     :latitude,
-     :longitude,
      :covered_area,
      :opened_veranda].each do |field|
       it "#{field} should be a number" do
@@ -26,13 +18,13 @@ describe Residential do
       end
     end
     
-    [:price,:levels,:bedrooms,:baths,:plot,:distance_to_sea,:parking].each do |field|
+    [:levels,:bedrooms,:baths,:distance_to_sea,:parking].each do |field|
       it "#{field} should allow any positive number" do
         create_should_not_raise_record_invalid(:residential, field => 1)
       end
     end
     
-    [:latitude,:longitude,:covered_area,:opened_veranda].each do |field|
+    [:covered_area,:opened_veranda].each do |field|
       it "#{field} should allow any positive floating point number" do
         create_should_not_raise_record_invalid(:residential, field => 1.0)
       end
