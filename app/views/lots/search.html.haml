@@ -26,6 +26,10 @@
                     = f.select :price_from, @lot_search_form.prices_from, {}, :class => 'span1'
                     = f.select :price_to, @lot_search_form.prices_to, {}, :class => 'span1'
 
+            .row
+              .span2.pull-right{:style => 'margin-top: 10px;'}
+                = f.submit "Go", :class => 'btn btn-primary pull-right'
+
     .row
       %h4.span3.well Filters
       .span3.well.lots-search-filters
@@ -49,8 +53,8 @@
     - @lots.each do |lot|
       .row
         .span2
-          %a{:href => lot_path(lot), :class => 'thumbnail'}
-            - if lot.pictures.first
+          - if lot.pictures.first
+            %a{:href => lot_path(lot), :class => 'thumbnail'}
               = image_tag lot.pictures.first.picture(:thumb)
           %h5
             Price: 
