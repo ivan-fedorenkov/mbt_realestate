@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130127085940) do
+ActiveRecord::Schema.define(:version => 20130127091446) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20130127085940) do
     t.integer  "parking_from"
     t.integer  "parking_to"
     t.boolean  "include_vat"
+    t.text     "description"
   end
 
   add_index "lots", ["location_id"], :name => "index_residentials_on_location_id"
