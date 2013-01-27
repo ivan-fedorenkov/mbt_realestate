@@ -30,7 +30,7 @@ module KnowsTheForms
       when /Стоимость/
         "price"
       when /Тип жилья/
-        "residential_type"
+        "lot_internal_type"
       when /Количество этажей/
         "levels"
       when /Количество спален/

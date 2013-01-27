@@ -3,8 +3,8 @@
     = f.label :title
     = f.text_field :title, :class => "input-xxlarge"
   %p
-    = f.label :residential_type
-    = f.collection_select :residential_type, Residential.get_residential_type_values, :first, :second
+    = f.label :lot_internal_type, "Residential type"
+    = f.collection_select :lot_internal_type, Residential.get_lot_internal_type_values, :first, :second
     
   .row
     .span4
