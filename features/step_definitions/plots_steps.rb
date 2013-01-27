@@ -8,3 +8,7 @@ end
   @plot = Plot.where(:title => plot_title).first
   find("#plot_#{@plot.id}").find_link(link_title).click
 end
+
+Допустим /^к предложению о земле прикреплена фотография "(.*?)"$/ do |picture_file|
+  plot.pictures << picture(:imageable => plot)
+end

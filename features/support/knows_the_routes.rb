@@ -44,12 +44,18 @@ module KnowsTheRoutes
         
       when /странице добавления нового предложения о продаже земли/
         new_admin_plot_path
-      when /странице предложения о продаже земели "(.*?)" панели администратора/
-        admin_plot_path(Plot.where(:title => $1).first)
+      when /страниц(е|у) предложения о (продаже )?земл(е|и) "(.*?)" панели администратора/
+        admin_plot_path(Plot.where(:title => $4).first)
       when /странице этого предложения о земле панели администратора/
         admin_plot_path(plot)
       when /странице редактирования этого предложения о земле/
         edit_admin_plot_path(plot)
+        
+      when /страниц(е|у) редактирования фотографий этого предложения о земле/
+        admin_plot_pictures_path(plot)
+      when /странице редактирования фотографий предложения о земле "(.*?)"/
+        admin_plot_pictures_path(Plot.where(:title => $1).first)
+      
         
       when /странице редактирования регионов/
         admin_locations_path

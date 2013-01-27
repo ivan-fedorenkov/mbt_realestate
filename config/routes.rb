@@ -17,7 +17,13 @@ MbtRealestate::Application.routes.draw do
         end
       end
     end
-    resources :plots
+    resources :plots do
+      resources :pictures do
+        collection do
+          delete :delete_all
+        end
+      end
+    end
   end
   
   resources :articles

@@ -27,7 +27,7 @@ class Admin::PicturesController < Admin::BaseController
 private 
   def find_imageable
     params.each do |name, value|
-      if name =~ /(residential)_id$/
+      if name =~ /(residential|plot)_id$/
         @imageable = $1.classify.constantize.find(value)
         return
       end
