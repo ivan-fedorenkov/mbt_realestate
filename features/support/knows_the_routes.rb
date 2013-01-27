@@ -45,8 +45,11 @@ module KnowsTheRoutes
       when /странице добавления нового предложения о продаже земли/
         new_admin_plot_path
       when /странице предложения о продаже земели "(.*?)" панели администратора/
-        puts Plot.all
-        admin_plot_path(Plot.where(:title => $1).first)  
+        admin_plot_path(Plot.where(:title => $1).first)
+      when /странице этого предложения о земле панели администратора/
+        admin_plot_path(plot)
+      when /странице редактирования этого предложения о земле/
+        edit_admin_plot_path(plot)
         
       when /странице редактирования регионов/
         admin_locations_path

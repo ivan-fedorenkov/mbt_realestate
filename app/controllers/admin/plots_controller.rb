@@ -1,7 +1,7 @@
 class Admin::PlotsController < Admin::BaseController
   
   before_filter :set_locations, :except => [:index, :show]
-  before_filter :set_plot, :only => [:show]
+  before_filter :set_plot, :only => [:show, :edit, :update]
   
   def index
     @plots = Plot.all
@@ -23,6 +23,19 @@ class Admin::PlotsController < Admin::BaseController
   end
   
   def show
+  end
+
+  def edit
+  end
+  
+  def update
+    if @plot.update_attributes(params[:plot])
+      flash[:notice] = "Plot has been updated."
+      redirect_to admin_plot_path(@plot)
+    else
+      flash[:alert] = "Plot has not been updated."
+      render :action => "edit"
+    end
   end
 
 private

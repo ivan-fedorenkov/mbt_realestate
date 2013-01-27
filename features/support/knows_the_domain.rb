@@ -11,6 +11,9 @@ module KnowsTheDomain
   def location(params = {})
     @location ||= FactoryGirl.create(:location, params)
   end
+  def plot(params = {})
+    @plot ||= FactoryGirl.create(:plot, params)
+  end
 end
 
 World(KnowsTheDomain)
