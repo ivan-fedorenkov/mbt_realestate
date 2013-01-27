@@ -1,0 +1,38 @@
+.row
+  .span5
+    %h3= plot.title
+    - if plot.title_deed_ready
+      %span{:class => ['label','label-success']} Title deed ready
+    - else
+      %span{:class => ['label']} Title deed not ready
+  .span3.text-right
+    %h2= display_price(plot.price)
+
+- if plot.pictures
+  .row
+    %br/
+    .span8
+      = render :partial => 'pictures/showcase', :locals => {:pictures => plot.pictures}
+      
+.row
+  %br/
+  .span8
+    %h4 Features
+    .row
+      .span4
+        %ul
+          %li
+            Location:
+            = plot.location.name
+          %li
+            Type:
+            = display_symbolize_constant(plot, :lot_internal_type)
+          %li
+            - if plot.lot_internal_type == :plot 
+              Plot size:              
+            - else
+              Land area:
+            = plot.plot
+    .row
+      .span8
+        = raw plot.description

@@ -1,5 +1,7 @@
 MbtRealestate::Application.routes.draw do
 
+  get "plots/index"
+
   root :to => 'articles#index'
   
   devise_for :admins
@@ -15,6 +17,7 @@ MbtRealestate::Application.routes.draw do
         end
       end
     end
+    resources :plots
   end
   
   resources :articles

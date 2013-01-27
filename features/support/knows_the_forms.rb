@@ -31,6 +31,8 @@ module KnowsTheForms
         "price"
       when /Тип жилья/
         "lot_internal_type"
+      when /Тип земли/
+        "lot_internal_type"
       when /Количество этажей/
         "levels"
       when /Количество спален/
@@ -40,7 +42,7 @@ module KnowsTheForms
       when /Число ванных комнат/
         "baths"
       when /Площадь территории/
-        "plot"
+        "[plot]"
       when /Частный бассейн/
         "private_pool"
       when /Общественный бассейн/

@@ -8,10 +8,10 @@ class Features
     @features = {}
     if ((features_string) and (!features_string.blank?))
       if features_string.match(@@features_regexp)
-        features = features_string.split(%r{;\s*})
+        features = features_string.split(%r{\s*;\s*})
         features.each do |feature|
-          feature_name, feature_elements = feature.split(%r{:\s*})
-          @features[feature_name] = feature_elements.split(%r{@@\s*})
+          feature_name, feature_elements = feature.split(%r{\s*:\s*})
+          @features[feature_name] = feature_elements.split(%r{\s*@@\s*})
         end
       else
         raise "Features string must be of the following pattern: #{@@features_regexp}"

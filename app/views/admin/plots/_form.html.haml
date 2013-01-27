@@ -1,0 +1,37 @@
+= form_for [:admin, @plot] do |f|
+  %p
+    = f.label :title
+    = f.text_field :title, :class => "input-xxlarge"
+  %p
+    = f.label :lot_internal_type, "Type"
+    = f.collection_select :lot_internal_type, Plot.get_lot_internal_type_values, :first, :second
+    
+  .row
+    .span4
+      = f.label :title_deed_ready
+      = f.select :title_deed_ready, [["Yes", true],["No", false]]
+    .span4
+      = f.label :price
+      = f.text_field :price, :class => "input-small"  
+    
+  .row
+    .span4
+      = f.label :location_id, "Location"
+      = f.select :location_id, options_from_collection_for_select(@locations, :id, :name)
+    .span2
+      = f.label :latitude
+      = f.text_field :latitude, :class => "input-mini"
+    .span2
+      = f.label :longitude
+      = f.text_field :longitude, :class => "input-mini"
+      
+  .row
+    .span2
+      = f.label :plot
+      = f.text_field :plot, :class => "input-mini"
+    
+  = f.label :description
+  = f.text_area :description, :class => "wysihtml5"
+  
+  %p
+    = f.submit :class => "btn btn-primary"

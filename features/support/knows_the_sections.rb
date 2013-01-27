@@ -7,6 +7,8 @@ module KnowsTheSections
         "Articles"
       when /предложений о жилье/
         "Residential"
+      when /предложений о продаже земли/
+        "Plots"
       when /редактирования регионов/
         "Locations"
       else

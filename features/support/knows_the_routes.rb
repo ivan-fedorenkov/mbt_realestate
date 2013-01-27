@@ -41,6 +41,13 @@ module KnowsTheRoutes
       when /страниц(е|у) редактирования фотографий этого предложения о жилье/
         admin_residential_pictures_path(residential)
         
+        
+      when /странице добавления нового предложения о продаже земли/
+        new_admin_plot_path
+      when /странице предложения о продаже земели "(.*?)" панели администратора/
+        puts Plot.all
+        admin_plot_path(Plot.where(:title => $1).first)  
+        
       when /странице редактирования регионов/
         admin_locations_path
       when /странице редактирования этого региона/
@@ -48,8 +55,7 @@ module KnowsTheRoutes
         
       when /странице входа в учётную запись/
         new_admin_session_path
-      
-        
+
       else
         raise "Путь `#{page_human_name}` не найден. Необходимо добавить путь в файл `knows_the_routes.rb`"        
     end

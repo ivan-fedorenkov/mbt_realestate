@@ -8,7 +8,7 @@ describe Features do
   end
 
   describe "instance methods" do
-    let(:features) { Features.new("feature 1: option 1, option 2; feature 2: option 3") }
+    let(:features) { Features.new("feature 1: option 1 @@ option 2; feature 2: option 3") }
     describe "#to_hash" do
       it "should return a hash of features" do
         features.to_hash.should eql({"feature 1" => ["option 1","option 2"], "feature 2" => ["option 3"]})
