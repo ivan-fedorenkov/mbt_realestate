@@ -7,6 +7,21 @@ describe Lot do
         create_should_raise_record_invalid(:lot, field => nil)
       end
     end
+
+    [:private_pool, :communal_pool, :title_deed_ready, :include_vat].each do |field|
+      it "#{field} should raise exception if value is not true, false or nil" do
+        lot = FactoryGirl.create(:lot, field => "invalid value")
+        lot.send("#{field}").should be_false
+      end
+      it "#{field} should not raise exception if value is true, false or nil" do
+        lot = FactoryGirl.create(:lot, field => true)
+        lot.send("#{field}").should be_true
+        lot = FactoryGirl.create(:lot, field => false)
+        lot.send("#{field}").should be_false
+        lot = FactoryGirl.create(:lot, field => nil)
+        lot.send("#{field}").should be_nil
+      end
+    end
     
     [:latitude,
      :longitude,

@@ -7,7 +7,7 @@ class Lot < ActiveRecord::Base
   
   validates :title, :location, :presence => true
   
-  validates :title_deed_ready, :private_pool, :communal_pool,
+  validates :title_deed_ready, :private_pool, :communal_pool, :include_vat,
     :inclusion => { :in => [true, false] },
     :allow_nil => true
   
