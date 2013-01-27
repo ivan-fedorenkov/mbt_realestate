@@ -44,6 +44,14 @@ module ApplicationHelper
   def display_symbolize_constant(object, field)
     object.class.send("get_#{field.to_s}_values".to_sym).send(:[], object.send(field))
   end
+
+  def display_boolean_field(object, field, true_message = "yes", false_message = "no")
+    if(object.send(field))
+      true_message
+    else
+      false_message
+    end
+  end
   
   
   def static_google_map_tag(args)

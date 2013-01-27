@@ -11,6 +11,8 @@ module KnowsTheSections
         "Plots"
       when /редактирования регионов/
         "Locations"
+      when /предложений для инвестирования/
+        "Investments"
       else
         raise "Раздел `#{section_human_name}` не найден. Необходимо добавить раздел в файл `knows_the_sections.rb`"  
     end

@@ -1,0 +1,76 @@
+.row
+  .span5
+    %h3= investment.title
+    - if investment.title_deed_ready
+      %span{:class => ['label','label-success']} Title deed ready
+    - else
+      %span{:class => ['label']} Title deed not ready
+    - if investment.include_vat
+      %span{:class => ['label','label-success']} VAT included
+    - else
+      %span{:class => ['label']} VAT not included
+  .span3.text-right
+    %h2= display_price(investment.price)
+
+- if investment.pictures
+  .row
+    %br/
+    .span8
+      = render :partial => 'pictures/showcase', :locals => {:pictures => investment.pictures}      
+
+.row
+  %br/
+  .span8
+    %h4 Features
+    .row
+      .span4
+        %ul
+          %li
+            Location:
+            = investment.location.name
+          %li
+            Type:
+            = display_symbolize_constant(investment, :lot_internal_type)
+          %li
+            Bedrooms:
+            = investment.bedrooms
+          %li
+            Baths:
+            = investment.baths
+          %li
+            Private pool:
+            = display_boolean_field(investment, :private_pool)
+          %li
+            Communal pool:
+            = display_boolean_field(investment, :communal_pool)
+        
+      .span4
+        %ul
+          %li
+            Covered area: 
+            = investment.covered_area
+          %li
+            Opened veranda:
+            = investment.opened_veranda
+          %li
+            Plot size:
+            = investment.plot
+          %li
+            Levels:
+            = investment.levels
+          %li
+            Distance to sea:
+            = investment.distance_to_sea
+          %li
+            Parking:
+            = investment.parking
+        
+    - @investment.features.map do |feature_title, feature_elements|
+      .feature
+        %h4= feature_title
+        %ul
+          - feature_elements.each do |element|
+            %li= raw element
+
+    .row
+      .span8= raw investment.description

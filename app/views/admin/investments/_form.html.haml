@@ -1,0 +1,76 @@
+= form_for [:admin, @investment] do |f|
+  %p
+    = f.label :title
+    = f.text_field :title, :class => "input-xxlarge"
+  %p
+    = f.label :lot_internal_type, "Investment type"
+    = f.collection_select :lot_internal_type, Investment.get_lot_internal_type_values, :first, :second
+    
+  .row
+    .span4
+      = f.label :price
+      = f.text_field :price, :class => "input-small"
+  .row
+    .span4
+      = f.label :include_vat
+      = f.select :include_vat, [["Yes", true],["No", false]]
+    .span4
+      = f.label :title_deed_ready
+      = f.select :title_deed_ready, [["Yes", true],["No", false]]
+    
+  .row
+    .span4
+      = f.label :location_id, "Location"
+      = f.select :location_id, options_from_collection_for_select(@locations, :id, :name)
+    .span2
+      = f.label :latitude
+      = f.text_field :latitude, :class => "input-mini"
+    .span2
+      = f.label :longitude
+      = f.text_field :longitude, :class => "input-mini"
+      
+  .row
+    .span2
+      = f.label :covered_area
+      = f.text_field :covered_area, :class => "input-mini"
+    .span2
+      = f.label :plot
+      = f.text_field :plot, :class => "input-mini"
+    .span2
+      = f.label :opened_veranda
+      = f.text_field :opened_veranda, :class => "input-mini"
+    .span2
+      = f.label :distance_to_sea
+      = f.text_field :distance_to_sea, :class => "input-mini"
+    
+  .row
+    .span2
+      = f.label :levels
+      = f.text_field :levels, :class => "input-mini"
+    .span2
+      = f.label :bedrooms
+      = f.text_field :bedrooms, :class => "input-mini"
+    .span2
+      = f.label :parking
+      = f.text_field :parking, :class => "input-mini"
+    .span2
+      = f.label :baths
+      = f.text_field :baths, :class => "input-mini"
+    
+  .row    
+    .span4
+      = f.label :private_pool
+      = f.select :private_pool, [["Yes", true],["No", false]]
+    .span4
+      = f.label :communal_pool
+      = f.select :communal_pool, [["Yes", true],["No", false]]
+    
+  %p
+    = f.label :additional_features
+    = f.text_field :additional_features, :class => "input-xxlarge"
+   
+  = f.label :description
+  = f.text_area :description, :class => "wysihtml5"
+   
+  %p
+    = f.submit :class => "btn btn-primary"

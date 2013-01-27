@@ -67,6 +67,8 @@ module KnowsTheForms
         "opened_veranda"
       when /Парковочных мест/
         "parking"
+      when /Цена с НДС/
+        "include_vat"
       else
         raise "Поле формы `#{field_human_name}` не найдено. Добавьте его в файл `knows_the_forms.rb`"
     end

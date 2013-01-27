@@ -24,6 +24,7 @@ MbtRealestate::Application.routes.draw do
         end
       end
     end
+    resources :investments
   end
   
   resources :articles
