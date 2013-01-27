@@ -52,4 +52,30 @@ describe LotsHelper do
       display_meters_or_kilometers("abc").should eql("abc")
     end
   end
+
+  describe "merge_link_params" do
+    describe "should replace existing hash params with params from another hash (including nesting one) and add all the new params" do
+      it "adding a new key/value" do
+        merge_link_params({:one => :two, :three => :four}, {:five => :six}).should eql({:one => :two, :three => :four, :five => :six})
+      end
+      it "replace existing value with other value for specified key" do
+        merge_link_params({:one => :two},{:one => :another_two}).should eql({:one => :another_two})
+      end
+      it "adding a new key/value inside second nested level" do
+        merge_link_params({:one => {:nested => :value}}, {:one => {:additional_nested => :value}}).should eql({
+          :one => {:nested => :value, :additional_nested => :value}  
+        })
+      end
+      it "replace existing value with other value for specified key when key at the second nested level" do
+        merge_link_params({:one => {:nested => :value}}, {:one => {:nested => :replaced_value}}).should eql({
+          :one => {:nested => :replaced_value}  
+        })
+      end
+      it "replace existing value with other value for specified key when key at the third nested level" do
+        merge_link_params({:one => {:nested_1 => {:nested_2 => :value}}}, {:one => {:nested_1 => {:nested_2 => :replaced_value}}}).should eql({
+          :one => {:nested_1 => {:nested_2 => :replaced_value}}  
+        })
+      end
+    end
+  end
 end

@@ -74,3 +74,7 @@ end
 Когда /^я применяю поисковой фильтр "(.*?)"$/ do |search_filter|
   find(".lots-search-filters").find_link(search_filter).click
 end
+
+Когда /^я сбрасываю поисковой фильтр$/ do
+  find(".lots-search-filters").find_link("All").click
+end

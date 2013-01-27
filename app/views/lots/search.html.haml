@@ -42,11 +42,11 @@
 
         %ul.nav
           %li
-            = link_to "All", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => ""}))
+            = link_to "All", search_lots_path(merge_link_params(params, {:lot_search_form => {:lot_internal_type => ""}}))
             %ul
               - @lot_search_form.type.constantize.get_lot_internal_type_values.map do |key, value|
                 %li
-                  = link_to "- #{value}", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => key}))
+                  = link_to "- #{value}", search_lots_path(merge_link_params(params, {:lot_search_form => {:lot_internal_type => key}}))
               
 
   .span8

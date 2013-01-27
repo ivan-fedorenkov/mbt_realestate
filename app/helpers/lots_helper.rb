@@ -48,5 +48,27 @@ module LotsHelper
     end
   end
 
+  def merge_link_params(params, additional_params)
+    # Go throught the additional params hash
+    additional_params.map do |key, value|
+      # If original params hash has a current key
+      if params.has_key? key
+        # If original params hash value for current key is a hash
+        # and we want to add a new hash inside this hash...
+        if params[key].is_a?(Hash) and value.is_a?(Hash)
+          merge_link_params(params[key], value)
+        # If original params hash value for current key is not a hash
+        # or we are going to replace this hash with value
+        else
+          params.merge!({key => value})
+        end
+      # If original params hash doesn't contain such key, just add it
+      else
+        params.merge!({key => value})
+      end
+    end
+
+    return params
+  end
 
 end
