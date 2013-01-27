@@ -16,6 +16,7 @@ FactoryGirl.define do
     baths 1
     plot 1
     price 1
+
     private_pool false
     communal_pool false
     location { FactoryGirl.create(:location) }
