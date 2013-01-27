@@ -6,12 +6,6 @@ class Residential < Lot
     :additional_features, :title_deed_ready, 
     :location_id, :latitude, :longitude, :opened_veranda, 
     :distance_to_sea, :parking
-  
-  
-  validates :levels,:bedrooms,:baths,:distance_to_sea,:parking,
-    :numericality => { :only_integer => true, :greater_than_or_equal_to => 0 }
-  validates :covered_area,:opened_veranda,
-    :numericality => { :greater_than => 0.0 }
     
   # Residential could be one of the following types
   symbolize :residential_type, :in => 
@@ -20,19 +14,6 @@ class Residential < Lot
      :town_house => 'Town House',
      :apartment => 'Apartment'}
      
-  validates :additional_features, 
-    :format => { :with => Features.validation_format }, 
-    :allow_nil => true, 
-    :allow_blank => true
-     
-  after_initialize :initialize_features
   
-  def initialize_features
-    @features = Features.new(additional_features)
-  end
-  
-  def features
-    @features.to_hash
-  end
      
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123163538) do
+ActiveRecord::Schema.define(:version => 20130127083516) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -50,26 +50,33 @@ ActiveRecord::Schema.define(:version => 20130123163538) do
   create_table "lots", :force => true do |t|
     t.string   "title"
     t.string   "residential_type"
-    t.integer  "levels",              :default => 0
-    t.integer  "bedrooms",            :default => 0
-    t.float    "covered_area",        :default => 0.0
-    t.integer  "baths",               :default => 0
-    t.integer  "plot",                :default => 0
-    t.boolean  "private_pool",        :default => false
-    t.boolean  "communal_pool",       :default => false
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.boolean  "private_pool"
+    t.boolean  "communal_pool"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "additional_features"
-    t.integer  "parking",             :default => 0
     t.float    "latitude",            :default => 0.0
     t.float    "longitude",           :default => 0.0
-    t.integer  "distance_to_sea",     :default => 0
-    t.float    "opened_veranda",      :default => 0.0
-    t.boolean  "title_deed_ready",    :default => false
+    t.integer  "distance_to_sea"
+    t.boolean  "title_deed_ready"
     t.integer  "location_id"
     t.string   "type"
     t.integer  "price_from"
     t.integer  "price_to"
+    t.integer  "plot_from"
+    t.integer  "plot_to"
+    t.integer  "bedrooms_from"
+    t.integer  "bedrooms_to"
+    t.integer  "baths_from"
+    t.integer  "baths_to"
+    t.integer  "covered_area_from"
+    t.integer  "covered_area_to"
+    t.integer  "opened_veranda_from"
+    t.integer  "opened_veranda_to"
+    t.integer  "levels_from"
+    t.integer  "levels_to"
+    t.integer  "parking_from"
+    t.integer  "parking_to"
   end
 
   add_index "lots", ["location_id"], :name => "index_residentials_on_location_id"
