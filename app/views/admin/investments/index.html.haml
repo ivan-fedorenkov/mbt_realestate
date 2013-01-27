@@ -2,3 +2,12 @@
   .span12
     .pull-right
       = link_to "New Investment", new_admin_investment_path, :class => 'btn btn-primary'
+
+.row
+  .span12
+    %ol
+      - @investments.each do |investment|
+        %li
+          %span[investment]
+            = link_to investment.title, admin_investment_path(investment)
+            = link_to "Edit", edit_admin_investment_path(investment), :class => 'btn btn-mini'

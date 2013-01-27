@@ -14,6 +14,9 @@ module KnowsTheDomain
   def plot(params = {})
     @plot ||= FactoryGirl.create(:plot, params)
   end
+  def investment(params = {})
+    @investment ||= FactoryGirl.create(:investment, params)
+  end
 end
 
 World(KnowsTheDomain)

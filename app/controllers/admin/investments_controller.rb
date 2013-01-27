@@ -1,7 +1,7 @@
 class Admin::InvestmentsController < Admin::BaseController
 
   before_filter :set_locations, :except => [:index, :show]
-  before_filter :set_investment, :only => [:show]
+  before_filter :set_investment, :only => [:show, :edit, :update]
 
   def index
     @investments = Investment.all
@@ -25,6 +25,20 @@ class Admin::InvestmentsController < Admin::BaseController
       render :action => "new"
     end
   end
+
+  def edit
+  end
+
+  def update
+    if @investment.update_attributes(params[:investment])
+      flash[:notice] = "Investment has been updated."
+      redirect_to admin_investment_path(@investment)
+    else
+      flash[:alert] = "Investment has not been updated."
+      render :action => "edit"
+    end
+  end
+
 
 private
   def set_locations

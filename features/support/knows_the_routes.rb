@@ -58,8 +58,19 @@ module KnowsTheRoutes
       
       when /странице добавления нового предложения для инвестирования/
         new_admin_investment_path
-      when /странице предложения для инвестирования "(.*?)" панели администратора/
-        admin_investment_path(Investment.where(:title => $1).first)
+      when /страниц(е|у) предложения для инвестирования "(.*?)" панели администратора/
+        admin_investment_path(Investment.where(:title => $2).first)
+      when /странице этого предложения для инвестирования панели администратора/
+        admin_investment_path(investment)
+      when /странице редактирования предложения для инвестирования "(.*?)"/
+        edit_admin_investment_path(Investment.where(:title => $1).first)
+      when /странице редактирования этого предложения для инвестирования/
+        edit_admin_investment_path(investment)
+
+      when /страниц(е|у) редактирования фотографий этого предложения для инвестирования/
+        admin_investment_pictures_path(investment)
+      when /странице редактирования фотографий предложения для инвестирования "(.*?)"/
+        admin_investment_pictures_path(Investment.where(:title => $1).first)
 
       when /странице редактирования регионов/
         admin_locations_path
