@@ -6,7 +6,7 @@
         = form_for @lot_search_form, :url => search_lots_path, :method => :get, :html => {:class => 'form-inline mini', :id => 'lots-search-form'} do |f|
           = field_set_tag do
             .row
-              .span3
+              .span3{:style => 'padding-bottom: 2px;'}
                 .control_group
                   = f.label :type, "I want to", :class => 'control-label'
                   .controls
