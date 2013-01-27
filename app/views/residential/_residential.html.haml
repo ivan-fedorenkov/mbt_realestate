@@ -5,6 +5,10 @@
       %span{:class => ['label','label-success']} Title deed ready
     - else
       %span{:class => ['label']} Title deed not ready
+    - if residential.include_vat
+      %span{:class => ['label','label-success']} VAT included
+    - else
+      %span{:class => ['label']} VAT not included
   .span3.text-right
     %h2= display_price(residential.price)
 
@@ -38,10 +42,10 @@
             = display_price(residential.price)
           %li
             Private pool:
-            = residential.private_pool
+            = display_boolean_field(residential, :private_pool)
           %li
             Communal pool:
-            = residential.communal_pool
+            = display_boolean_field(residential, :communal_pool)
         
       .span4
         %ul
