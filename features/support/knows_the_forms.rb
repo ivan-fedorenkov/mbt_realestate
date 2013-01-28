@@ -69,6 +69,8 @@ module KnowsTheForms
         "parking"
       when /Цена с НДС/
         "include_vat"
+      when /Дата окончания строительства/
+        "delivery_date"
       else
         raise "Поле формы `#{field_human_name}` не найдено. Добавьте его в файл `knows_the_forms.rb`"
     end

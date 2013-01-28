@@ -10,10 +10,13 @@
     .span4
       = f.label :price
       = f.text_field :price, :class => "input-small"
-  .row
     .span4
       = f.label :include_vat
       = f.select :include_vat, [["Yes", true],["No", false]]
+  .row
+    .span4
+      = label_tag "delivery_date", "Delivery date"
+      = date_select "investment", "delivery_date", :discard_day => true
     
   .row
     .span4

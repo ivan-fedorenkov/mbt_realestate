@@ -5,6 +5,9 @@
       %span{:class => ['label','label-success']} VAT included
     - else
       %span{:class => ['label']} VAT not included
+    %span{:class => ['label','label-success']}
+      Delivery at 
+      = l investment.delivery_date, :format => "%B %Y"
   .span3.text-right
     %h2= display_price(investment.price)
 

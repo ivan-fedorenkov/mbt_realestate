@@ -9,10 +9,17 @@ end
 end
 
 Когда /^(?:я )?заполняю поля формы(?: (.*?))? следующими данными:$/ do |form, fields_table|
- 
   fields_table.raw.each do |field_row|
-    field_row[1] = "true" if(field_row[1] =~ /^v$/)
-    find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{get_form_field(field_row[0])}')]").set(field_row[1]) if field_row[1]
+    field = get_form_field(field_row[0])
+    if (field.end_with? "date")
+      day,month,year = field_row[1].split(".")
+      find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{field}(1i)')]").set(year.to_i) if year
+      find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{field}(2i)')]").set(month.to_i) if month
+      find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{field}(3i)')]").set(day.to_i) if day
+    else
+      field_row[1] = "true" if(field_row[1] =~ /^v$/)
+      find(:xpath, "#{form_area_xpath_selector_for(form)}//*[contains(@name,'#{field}')]").set(field_row[1]) if field_row[1]
+    end
   end
 
   submit_form! form

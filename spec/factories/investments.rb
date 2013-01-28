@@ -3,6 +3,7 @@ FactoryGirl.define do
     title "Investment title"
     lot_internal_type :detached_house
     include_vat { true }
+    delivery_date { Date.today }
     parking "1 - 2"
     latitude 33.0
     longitude 33.0
