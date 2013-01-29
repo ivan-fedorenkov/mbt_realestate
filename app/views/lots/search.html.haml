@@ -62,15 +62,5 @@
         .span6
           %a{:href => lot_path(lot)}
             %h3= lot.title
-          .row
-            .span3
-              %ul
-                %li= "Location: #{lot.location.name}"
-                %li= "Type: #{lot.lot_internal_type}"
-            - if lot.type == "Residential" || lot.type == "Investment"
-              .span3
-                %ul
-                  %li= "Bedrooms: #{lot.bedrooms}"
-                  %li= "Baths: #{lot.baths}"
-
+ 
       %hr/
