@@ -71,4 +71,15 @@ module LotsHelper
     return params
   end
 
+  def display_header(args = {})
+    header = ""
+    if args[:normal]
+      header += "<h3><span>#{args[:normal]}</span>"
+      header += " #{args[:bolded]}" if args[:bolded]
+      header += "</h3>"
+    end
+
+    return header.html_safe
+  end
+
 end

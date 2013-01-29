@@ -33,9 +33,56 @@
             = f.submit "Go", :class => 'btn btn-primary pull-right'
 
   .span8.home_carousel.no_margin_left.pull-right
-    <img src='http://images.shoptopia.com/files/mf_photo/board_game.jpg' />
+
+
 
     
-%ol
-  - @lots.each do |lot|
-    %li= link_to "#{lot.title} (#{lot.type})", lot_path(lot)
+.row
+  .span4
+    = display_header :normal => "Company", :bolded => "activity #1"
+    %a{:href => '#'}
+      = image_tag 'latest_properties.jpg'
+    %p
+      Sign up for our weekly newsletter and stay up-to-date with the latest offers, and newest products.
+      %a{:href => '#', :class => 'pull-right'} more...
+  .span4
+    = display_header :normal => "Company", :bolded => "activity #2"
+    %a{:href => '#'}
+      = image_tag 'new_homes.png'
+    %p
+      Sign up for our weekly newsletter and stay up-to-date with the latest offers, and newest products.
+      %a{:href => '#', :class => 'pull-right'} more...
+  .span4
+    = display_header :normal => "Company", :bolded => "activity #3"
+    %a{:href => '#'}
+      = image_tag 'homes_abroad.png'
+    %p
+      Sign up for our weekly newsletter and stay up-to-date with the latest offers, and newest products.
+      %a{:href => '#', :class => 'pull-right'} more...
+
+.row
+  %br/
+  .span4
+    = display_header :normal => "Cyprus", :bolded => "map"
+
+    = static_google_map_tag(:center => '35.168570,33.307800', :size => '370x350', :zoom => 8 )
+
+  .span8
+    = display_header :normal => "Featured", :bolded => "lots"
+
+    %table.table.table-bordered.table-striped
+      %thead
+        %tr
+          %th Title
+          %th Type
+          %th Location
+          %th Price
+          %th &nbsp;
+      %tbody
+        - @lots.each do |lot|
+          %tr
+            %td= link_to lot.title, lot_path(lot)
+            %td= lot.type
+            %td= lot.location.name
+            %td= display_price(lot.price)
+            %td= link_to "View", lot_path(lot)

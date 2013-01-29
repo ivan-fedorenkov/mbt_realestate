@@ -78,4 +78,19 @@ describe LotsHelper do
       end
     end
   end
+
+  describe "display_header" do
+    it "should not display anything if :normal argument is not set" do
+      display_header.should eql("")
+    end
+    it "should display text insde h3 > span tag" do
+      header = "a test header"
+      display_header(:normal => header).should eql("<h3><span>a test header</span></h3>".html_safe)
+    end
+    it "should not include bolded_style argument text inside span tag" do
+      header_normal = "some"
+      header_bolded = "text"
+      display_header(:normal => header_normal, :bolded => header_bolded).should eql("<h3><span>some</span> text</h3>".html_safe)
+    end
+  end
 end
