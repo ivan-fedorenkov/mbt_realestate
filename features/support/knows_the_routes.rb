@@ -74,6 +74,9 @@ module KnowsTheRoutes
       when /странице редактирования фотографий предложения для инвестирования "(.*?)"/
         admin_investment_pictures_path(Investment.where(:title => $1).first)
 
+      when /странице этого лота/
+        lot_path(lot)
+
       when /странице редактирования регионов/
         admin_locations_path
       when /странице редактирования этого региона/

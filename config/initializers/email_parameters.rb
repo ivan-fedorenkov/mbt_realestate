@@ -1,0 +1,1 @@
+MbtRealestate::Application.config.admin_email = "admin@mbt-realestate.com"
