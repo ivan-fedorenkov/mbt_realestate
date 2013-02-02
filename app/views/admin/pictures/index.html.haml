@@ -13,7 +13,7 @@
             - @pictures.each do |picture|
               %span[picture]
                 = image_tag picture.picture.url(:thumb)
-                = check_box_tag "pictures_ids", "#{picture.id}"
+                = check_box_tag 'pictures_ids[]', picture.id, false, :id => nil
  
 .row
   .span12
