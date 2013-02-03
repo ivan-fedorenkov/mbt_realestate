@@ -40,10 +40,7 @@ module KnowsTheRoutes
         admin_residential_pictures_path(Residential.where(:title => $1).first)
       when /страниц(е|у) редактирования фотографий этого предложения о жилье/
         admin_residential_pictures_path(residential)
-        
-      when /странице результатов поиска предложений о жилье/
-        search_lots_path
-        
+  
       when /странице добавления нового предложения о продаже земли/
         new_admin_plot_path
       when /страниц(е|у) предложения о (продаже )?земл(е|и) "(.*?)" панели администратора/
@@ -73,6 +70,9 @@ module KnowsTheRoutes
         admin_investment_pictures_path(investment)
       when /странице редактирования фотографий предложения для инвестирования "(.*?)"/
         admin_investment_pictures_path(Investment.where(:title => $1).first)
+
+      when /странице результатов поиска лотов/
+        search_lots_path
 
       when /странице редактирования регионов/
         admin_locations_path

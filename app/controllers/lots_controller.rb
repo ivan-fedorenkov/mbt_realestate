@@ -12,14 +12,14 @@ class LotsController < ApplicationController
 
   def search
     search_params = {}
-    search_params[:location_id] = params[:location_id] unless params[:location_id].empty?
-    search_params[:lot_internal_type] = params[:lot_internal_type] unless params[:lot_internal_type].empty?
+    search_params[:location_id] = params[:lot_search_form][:location_id] unless params[:lot_search_form][:location_id].empty?
+    search_params[:type] = params[:lot_search_form][:type] unless params[:lot_search_form][:type].empty?
 
     @lots = Lot.where(search_params)
 
-    @lots = @lots.where("price_from >= ?", params[:price_from]) unless params[:price_from].empty?
-    @lots = @lots.where("(price_to <= ?) or (price_to is null and price_from <= ?)", params[:price_to], params[:price_to]) unless params[:price_to].empty?
-    @lots = @lots.where("type = ?", params[:type]) unless params[:type].empty?
+    @lots = @lots.where("price_from >= ?", params[:lot_search_form][:price_from]) unless params[:lot_search_form][:price_from].empty?
+    @lots = @lots.where("(price_to <= ?) or (price_to is null and price_from <= ?)", params[:lot_search_form][:price_to], params[:lot_search_form][:price_to]) unless params[:lot_search_form][:price_to].empty?
+    @lots = @lots.where("type = ?", params[:lot_search_form][:type]) unless params[:lot_search_form][:type].empty?
   end
 
 private 
