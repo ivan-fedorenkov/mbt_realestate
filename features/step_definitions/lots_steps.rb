@@ -10,7 +10,8 @@ end
     "Title" => :title,
     "Type" => :type,
     "Location" => :location,
-    "Price" => :price)
+    "Price" => :price,
+    "Lot Internal Type" => :lot_internal_type)
 
   lots.hashes.each do | lot_params |
     location = Location.find_by_name(lot_params[:location])
@@ -41,7 +42,7 @@ end
       page_should_display_all_lots_of_type.call(Plot)
     when /ни одного предложения о жилье/
       Lot.all.each { |lot| page.should_not have_content(lot.title) }
-    when /должны содержать следующие предложения о жилье:(.*)/
+    when /должны содержать только следующие предложения о жилье:(.*)/
       residential_titles = $1.strip.split(/\s*,\s*/)
       Residential.all.each do |residential|
         if residential_titles.include? residential.title
@@ -53,4 +54,8 @@ end
     else
       raise "Pending"
   end
+end
+
+Когда /^я применяю поисковой фильтр "(.*?)"$/ do |search_filter|
+  find(".lots-search-filters").find_link(search_filter).click
 end

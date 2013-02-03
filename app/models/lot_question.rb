@@ -7,7 +7,7 @@ class LotQuestion
 
   attr_accessor :name, :phone, :email, :question
 
-  def initialize(params = {:name => nil, :phone => nil, :email => nil, :question => nil})
+  def initialize(params = {})
     @name, @phone, @email, @question = params[:name], params[:phone], params[:email], params[:question]
   end
 

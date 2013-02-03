@@ -3,29 +3,46 @@
     .row
       %h4.span3.well Change location and criteria
       .span3.well
-        = form_tag search_lots_path, :class => 'form-inline mini', :id => 'lots-search-form' do
+        = form_for @lot_search_form, :url => search_lots_path, :method => :get, :html => {:class => 'form-inline mini', :id => 'lots-search-form'} do |f|
           = field_set_tag do
             .row
               .span3
                 .control_group
-                  = label_tag "lot_search_form[type]", "I want to", :class => 'control-label'
+                  = f.label :type, "I want to", :class => 'control-label'
                   .controls
-                    = select_tag "lot_search_form[type]", options_for_select([["Find a residential","Residential"],["Invest money in something","Investment"],["Buy a plot or land","Plot"]]), :class => 'span2'
+                    = f.select :type, @lot_search_form.types, {}, :class => 'span2'
             .row
               .span3
                 .control-group
-                  = label_tag "lot_search_form[location_id]", "Location", :class => 'control-label'
+                  = f.label :location_id, "Location", :class => 'control-label'
                   .controls
-                    = select_tag "lot_search_form[location_id]", options_for_select(@residential_search_form.locations), :class => 'span2'
+                    = f.select :location_id, @lot_search_form.locations, {}, :class => 'span2'
 
             .row
               .span3
                 .control-group
-                  = label_tag "lot_search_form[price_from]", "Price", :class => 'control-label'
+                  = f.label :price_from, "Price", :class => 'control-label'
                   .controls
-                    = select_tag "lot_search_form[price_from]", options_for_select([["Min",0],[1000],[1500],[2000],[2500],[3000],[4000],[5000]], 0), :class => 'span1 focused'
-                    = select_tag "lot_search_form[price_to]", options_for_select([[1000],[2000],[2500],[3000],[4000],[5000],['Max','']], ''), :class => 'span1 focused'
+                    = f.select :price_from, @lot_search_form.prices_from, {}, :class => 'span1'
+                    = f.select :price_to, @lot_search_form.prices_to, {}, :class => 'span1'
 
+    .row
+      %h4.span3.well Filters
+      .span3.well.lots-search-filters
+        - if @lot_search_form.type == "Residential"
+          %h4 Residential types:
+          %ul.nav
+            %li
+              = link_to "All", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => ""}))
+              %ul
+                %li
+                  = link_to "- Detached House", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => "detached_house"}))
+                %li
+                  = link_to "- Semi Detached", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => "semi_detached"}))
+                %li
+                  = link_to "- Town House", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => "town_house"}))
+                %li
+                  = link_to "- Apartment", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => "apartment"}))
 
   .span8
     - @lots.each do |lot|
