@@ -1,49 +1,40 @@
 .row
-  .span4.well.lform
-    .tabbable
-      %ul.nav.nav-pills
-        %li.active
-          %a{:href => '#residential', :data => {:toggle => 'pill'}} Residential
-        %li
-          %a{:href => '#investments', :data => {:toggle => 'pill'}} Investments
-        %li
-          %a{:href => '#plots', :data => {:toggle => 'pill'}} Plots & Lands
-  
-    .tab-content
-      #residential.tab-pane.active
-        = form_tag search_lots_path, :class => 'form-inline', :id => 'residential-search-form' do
-          = field_set_tag do
-            = hidden_field_tag :type, "Residential"
-            .row
-              .span2
-                .control-group
-                  = label_tag :location_id, Location
-                  .controls
-                    = select_tag :location_id, options_for_select(@residential_search_form.locations), :class => 'span2 focused'
+  .span3.well.lform
+    = form_tag search_lots_path, :class => 'form-inline', :id => 'residential-search-form' do
+      = field_set_tag do
+        .row
+          .span3
+            .control-group
+              = label_tag :type, "I want to"
+              .controls
+                = select_tag :type, options_for_select([["find a residential","Residential"],["invest money in something","Investment"],["buy a plot or land","Plot"]])
+        .row
+          .span3
+            .control-group
+              = label_tag :location_id, "In the following location"
+              .controls
+                = select_tag :location_id, options_for_select(@residential_search_form.locations), :class => 'span2 focused'
 
-              .span2
-                .control-group
-                  = label_tag :lot_internal_type, "Type"
-                  .controls
-                    = select_tag :lot_internal_type, options_for_select(@residential_search_form.lot_internal_types), :class => 'span2 focused'
+        .row
+          .span3
+            = label_tag :price_from, "For the following price"
+        .row
+          .span1
+            .control-group
+              .controls
+                = select_tag :price_from, options_for_select([["Min",0],[1000,1000],[1500,1500],[2000,2000],[3000,3000],[4000,4000],[5000,5000]], 0), :class => 'span1 focused'
+          .span1
+            .control-group
+              .controls
+                = select_tag :price_to, options_for_select([[1000,1000],[2000,2000],[3000,3000],[4000,4000],[5000,5000],['Max','']], ''), :class => 'span1 focused'
 
-            .row
-              .span2
-                .control-group
-                  = label_tag "Minimum price"
-                  .controls
-                    = select_tag :price_from, options_for_select([[0,0],[1000,1000],[1500,1500],[2000,2000],[3000,3000],[4000,4000],[5000,5000]], 0), :class => 'span2 focused'
-              .span2
-                .control-group
-                  = label_tag "Maximum price"
-                  .controls
-                    = select_tag :price_to, options_for_select([[1000,1000],[2000,2000],[3000,3000],[4000,4000],[5000,5000],['No limit','']], ''), :class => 'span2 focused'
+        .row
+          .span3.pull-right{:style => 'margin-top: 10px;'}
+            = submit_tag "Go", :class => 'btn btn-primary pull-right'
 
-            .row
-              .span4
-                = submit_tag "Search", :class => 'btn btn-primary pull-right'
-      #investments.tab-pane
-        Hello world
+  .span8.home_carousel.no_margin_left.pull-right
+    <img src='http://www.livadhiotisdevelopers.com/upfiles/Image/SplashImages/splash_small_01.jpg' />
+
     
 %ol
   - @lots.each do |lot|
