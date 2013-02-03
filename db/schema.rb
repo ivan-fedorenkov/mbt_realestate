@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128175603) do
+ActiveRecord::Schema.define(:version => 20130202164945) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(:version => 20130128175603) do
     t.string   "lot_internal_type"
     t.boolean  "private_pool"
     t.boolean  "communal_pool"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.string   "additional_features"
-    t.float    "latitude",            :default => 0.0
-    t.float    "longitude",           :default => 0.0
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
+    t.text     "additional_features", :limit => 255
+    t.float    "latitude",                           :default => 0.0
+    t.float    "longitude",                          :default => 0.0
     t.integer  "distance_to_sea"
     t.boolean  "title_deed_ready"
     t.integer  "location_id"

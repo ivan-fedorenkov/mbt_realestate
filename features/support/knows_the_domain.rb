@@ -17,6 +17,9 @@ module KnowsTheDomain
   def investment(params = {})
     @investment ||= FactoryGirl.create(:investment, params)
   end
+  def lot(params = {})
+    @lot ||= FactoryGirl.create(:residential, params)
+  end
 end
 
 World(KnowsTheDomain)

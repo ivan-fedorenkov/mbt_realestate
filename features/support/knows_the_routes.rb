@@ -73,6 +73,9 @@ module KnowsTheRoutes
 
       when /странице результатов поиска лотов/
         search_lots_path
+      when /странице этого лота/
+        lot_path(lot)
+
 
       when /странице редактирования регионов/
         admin_locations_path

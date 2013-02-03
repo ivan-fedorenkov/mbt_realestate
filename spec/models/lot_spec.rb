@@ -93,7 +93,7 @@ describe Lot do
       it "should allow string in predefined format" do
         create_should_not_raise_record_invalid(
           :lot, 
-          :additional_features => "feature#1: option1; feature2: option2, option3")
+          :additional_features => "feature#1 => option1 @@@ feature2 => option2 @@ option3")
       end
     end
     

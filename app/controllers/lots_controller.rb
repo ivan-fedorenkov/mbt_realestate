@@ -8,6 +8,7 @@ class LotsController < ApplicationController
   end  
   
   def show
+    @lot_question = LotQuestion.new(:question => "Your question")
   end
 
   def search
@@ -21,6 +22,7 @@ class LotsController < ApplicationController
     @lots = @lots.where("(price_to <= ?) or (price_to is null and price_from <= ?)", params[:lot_search_form][:price_to], params[:lot_search_form][:price_to]) unless params[:lot_search_form][:price_to].empty?
     @lots = @lots.where("type = ?", params[:lot_search_form][:type]) unless params[:lot_search_form][:type].empty?
   end
+
 
 private 
   def set_lot

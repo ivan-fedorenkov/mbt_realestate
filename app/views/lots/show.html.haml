@@ -18,4 +18,22 @@
       %p
         %br/
         %a{:data => {:toggle => 'modal'}, :href => '#mapModal'} View larger map
-       
+      %hr
+    #contact_agent.center
+      %h4 Contact us
+      = form_for @lot_question, :url => lot_questions_path(@lot), :html => {:id => 'lot-question-form', :class => 'form-inline'} do |f|
+        = field_set_tag do
+          .control-group
+            .controls
+              = f.text_field :name, :placeholder => 'Your name'
+          .control-group
+            .controls
+              = f.phone_field :phone, :placeholder => 'Phone'
+          .control-group
+            .controls
+              = f.email_field :email, :placeholder => 'Email address'
+          .control-group
+            .controls
+              = f.text_area :question, :rows => 3, :class => 'input-xlarge'
+          .form-actions
+            = submit_tag 'Contact agent', :class => 'btn btn-primary btn-large'

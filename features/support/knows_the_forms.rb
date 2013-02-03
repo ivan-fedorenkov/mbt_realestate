@@ -14,6 +14,8 @@ module KnowsTheForms
         "//*[@id = 'residential-search-form']"
       when /поиска лотов/
         "//*[@id = 'lots-search-form']"
+      when /обратной связи/
+        "//*[@id = 'lot-question-form']"
       else
         "//div[@id = 'content']"
     end
@@ -79,6 +81,7 @@ module KnowsTheForms
         "include_vat"
       when /Дата окончания строительства/
         "delivery_date"
+
       when /I want to/
         "type"
       when /Where/
@@ -87,6 +90,10 @@ module KnowsTheForms
         "price_from"
       when /Price to/
         "price_to"
+
+      when /^([a-zA-Z]+)$/
+        "[#{$1}]"
+
       else
         raise "Поле формы `#{field_human_name}` не найдено. Добавьте его в файл `knows_the_forms.rb`"
     end

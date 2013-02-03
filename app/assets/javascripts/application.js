@@ -18,4 +18,5 @@
 //= require jquery.aw-showcase/jquery.aw-showcase.min
 //= require global
 //= require maps
+//= require portamento-min
 //= require_tree .
