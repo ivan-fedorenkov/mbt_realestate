@@ -1,5 +1,43 @@
 .row
-  .span5.pffset3
-    %ul
-      - @lots.each do |lot|
-        %li= lot.title
+  .span4
+    .row
+      %h4.span3.well Change location and criteria
+      .span3.well
+        = form_tag search_lots_path, :class => 'form-inline mini', :id => 'lots-search-form' do
+          = field_set_tag do
+            .row
+              .span3
+                .control_group
+                  = label_tag "lot_search_form[type]", "I want to", :class => 'control-label'
+                  .controls
+                    = select_tag "lot_search_form[type]", options_for_select([["Find a residential","Residential"],["Invest money in something","Investment"],["Buy a plot or land","Plot"]]), :class => 'span2'
+            .row
+              .span3
+                .control-group
+                  = label_tag "lot_search_form[location_id]", "Location", :class => 'control-label'
+                  .controls
+                    = select_tag "lot_search_form[location_id]", options_for_select(@residential_search_form.locations), :class => 'span2'
+
+            .row
+              .span3
+                .control-group
+                  = label_tag "lot_search_form[price_from]", "Price", :class => 'control-label'
+                  .controls
+                    = select_tag "lot_search_form[price_from]", options_for_select([["Min",0],[1000],[1500],[2000],[2500],[3000],[4000],[5000]], 0), :class => 'span1 focused'
+                    = select_tag "lot_search_form[price_to]", options_for_select([[1000],[2000],[2500],[3000],[4000],[5000],['Max','']], ''), :class => 'span1 focused'
+
+
+  .span8
+    - @lots.each do |lot|
+      .row
+        .span2
+          %a{:href => lot_path(lot), :class => 'thumbnail'}
+            - if lot.pictures.first
+              = image_tag lot.pictures.first.picture(:thumb)
+          %h5
+            Price: 
+            = display_price(lot.price)
+        .span6
+          %a{:href => lot_path(lot)}
+            %h3= lot.title
+      %hr/

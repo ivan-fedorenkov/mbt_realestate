@@ -39,13 +39,13 @@
 
 Примеры:
   | action                    | location | price_from | price_to | search_results                                           |
-  | Buy a residential         | All      | 0          | No limit | должны содержать все предложения о жилье                 |
-  | Invest money in something | All      | 0          | No limit | должны содержать все предложения для инвестирования      |
-  | Buy a land or plot        | All      | 0          | No limit | должны содержать все предложения о покупке земли         |
+  | Find a residential        | All      | Min        | Max      | должны содержать все предложения о жилье                 |
+  | Invest money in something | All      | Min        | Max      | должны содержать все предложения для инвестирования      |
+  | Buy a plot or land        | All      | Min        | Max      | должны содержать все предложения о покупке земли         |
 
-  | Buy a residential         | Nicosia  | 0          | No limit | должны содержать следующие предложения о жилье: Res #2   |
-  | Buy a residential         | Larnaca  | 0          | No limit | должны содержать следующие предложения о жилье: Res #1, Res #4, Res #5 |
-  | Buy a residential         | Larnaca  | 1000       | 2500     | должны содержать следующие предложения о жилье: Res #1, Res #4 |
-  | Buy a residential         | All      | 3000       | No limit | должны содержать следующие предложения о жилье: Res #3, Res #5 |
-  | Buy a residential         | All      | 5000       | No limit | не должны содержать ни одного предложения о жилье        |
+  | Find a residential        | Nicosia  | Min        | Max      | должны содержать следующие предложения о жилье: Res #2   |
+  | Find a residential        | Larnaca  | Min        | Max      | должны содержать следующие предложения о жилье: Res #1, Res #4, Res #5 |
+  | Find a residential        | Larnaca  | 1000       | 2500     | должны содержать следующие предложения о жилье: Res #1, Res #4 |
+  | Find a residential        | All      | 3000       | Max      | должны содержать следующие предложения о жилье: Res #3, Res #5 |
+  | Find a residential        | All      | 5000       | Max      | не должны содержать ни одного предложения о жилье        |
 

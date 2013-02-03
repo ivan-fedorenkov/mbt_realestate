@@ -4,7 +4,7 @@ class LotsController < ApplicationController
   
   def index
     @lots = Lot.all
-    @residential_search_form = ResidentialSearchForm.new
+    @lot_search_form = LotSearchForm.new
   end  
   
   def show
@@ -12,6 +12,8 @@ class LotsController < ApplicationController
   end
 
   def search
+    @residential_search_form = ResidentialSearchForm.new
+    
     search_params = {}
     search_params[:location_id] = params[:lot_search_form][:location_id] unless params[:lot_search_form][:location_id].empty?
     search_params[:type] = params[:lot_search_form][:type] unless params[:lot_search_form][:type].empty?

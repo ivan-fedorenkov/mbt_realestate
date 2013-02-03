@@ -83,13 +83,13 @@ module KnowsTheForms
         "delivery_date"
 
       when /I want to/
-        "type"
+        ["type", :select_box]
       when /Where/
-        "location_id"
+        ["location_id", :select_box]
       when /Price from/
-        "price_from"
+        ["price_from", :select_box]
       when /Price to/
-        "price_to"
+        ["price_to", :select_box]
 
       when /^([a-zA-Z]+)$/
         "[#{$1}]"

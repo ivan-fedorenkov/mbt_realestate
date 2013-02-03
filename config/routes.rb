@@ -37,7 +37,7 @@ MbtRealestate::Application.routes.draw do
   resources :lots, :only => [:index, :show] do
     resources :questions, :only => [:create]
     collection do
-      post :search
+      get :search
     end
   end
 
