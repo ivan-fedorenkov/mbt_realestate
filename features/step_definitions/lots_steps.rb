@@ -24,31 +24,46 @@ end
 
 То /^результаты поиска (.*)$/ do |search_results|
   
-  page_should_display_all_lots_of_type = lambda do |klass|
-    klass.all.each do |lot|
-      page.should have_content(lot.title)
+  get_class = lambda do |lot_type|
+    case lot_type
+      when /о жилье/
+        klass = Residential
+      when /для инвестирования/
+        klass = Investment
+      when /о покупке земли/
+        klass = Plot 
+      else
+        raise "Can't find class for `#{lot_type}`"
     end
-    klass.where("type != ?", klass.to_s) do |lot|
-      page.should_not have_content(lot.title)
-    end
+
+    return klass
   end
 
   case search_results
-    when /все предложения о жилье/ 
-      page_should_display_all_lots_of_type.call(Residential)
-    when /все предложения для инвестирования/ 
-      page_should_display_all_lots_of_type.call(Investment)
-    when /все предложения о покупке земли/ 
-      page_should_display_all_lots_of_type.call(Plot)
+    when /^должны содержать все предложения (.*)$/ 
+
+      klass = get_class.call($1)
+       
+      klass.all.each do |lot|
+        page.should have_content(lot.title)
+      end
+      klass.where("type != ?", klass.to_s) do |lot|
+        page.should_not have_content(lot.title)
+      end
+
     when /ни одного предложения о жилье/
       Lot.all.each { |lot| page.should_not have_content(lot.title) }
-    when /должны содержать только следующие предложения о жилье:(.*)/
-      residential_titles = $1.strip.split(/\s*,\s*/)
-      Residential.all.each do |residential|
-        if residential_titles.include? residential.title
-          page.should have_content residential.title
+      
+    when /^должны содержать только следующие предложения (.*)$/
+      lot_type, lot_titles = $1.strip.split(/\s*:\s*/)
+      klass = get_class.call(lot_type)
+
+      lot_titles = lot_titles.split(/\s*,\s*/)
+      klass.all.each do |lot|
+        if lot_titles.include? lot.title
+          page.should have_content lot.title
         else
-          page.should_not have_content residential.title
+          page.should_not have_content lot.title
         end
       end
     else

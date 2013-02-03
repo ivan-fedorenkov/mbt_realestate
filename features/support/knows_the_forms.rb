@@ -98,6 +98,24 @@ module KnowsTheForms
         raise "Поле формы `#{field_human_name}` не найдено. Добавьте его в файл `knows_the_forms.rb`"
     end
   end
+
+  def set_form_field(form_name, field_name, field_value)
+    field, field_type = get_form_field(field_name)
+    if (field.end_with? "date")
+      day,month,year = field_value.split(".")
+      find(:xpath, "#{form_area_xpath_selector_for(form_name)}//*[contains(@name,'#{field}(1i)')]").set(year.to_i) if year
+      find(:xpath, "#{form_area_xpath_selector_for(form_name)}//*[contains(@name,'#{field}(2i)')]").set(month.to_i) if month
+      find(:xpath, "#{form_area_xpath_selector_for(form_name)}//*[contains(@name,'#{field}(3i)')]").set(day.to_i) if day
+    else
+      case field_type
+        when :select_box
+          find(:xpath, "#{form_area_xpath_selector_for(form_name)}//*[contains(@name,'#{field}')]/option[text() = '#{field_value}']").select_option if field_value
+        else
+          field_value = "true" if(field_value =~ /^v$/)
+          find(:xpath, "#{form_area_xpath_selector_for(form_name)}//*[contains(@name,'#{field}')]").set(field_value) if field_value
+      end
+    end
+  end
   
   def submit_form!(form = nil)
     page.find(:xpath, "#{form_area_xpath_selector_for(form)}//*[@name = 'commit']").click

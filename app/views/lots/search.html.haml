@@ -31,18 +31,19 @@
       .span3.well.lots-search-filters
         - if @lot_search_form.type == "Residential"
           %h4 Residential types:
-          %ul.nav
-            %li
-              = link_to "All", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => ""}))
-              %ul
+        - elsif @lot_search_form.type == "Investment"
+          %h4 Investment types:
+        - else
+          %h4 Land types:
+
+        %ul.nav
+          %li
+            = link_to "All", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => ""}))
+            %ul
+              - @lot_search_form.type.constantize.get_lot_internal_type_values.map do |key, value|
                 %li
-                  = link_to "- Detached House", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => "detached_house"}))
-                %li
-                  = link_to "- Semi Detached", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => "semi_detached"}))
-                %li
-                  = link_to "- Town House", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => "town_house"}))
-                %li
-                  = link_to "- Apartment", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => "apartment"}))
+                  = link_to "- #{value}", search_lots_path(params.merge({"lot_search_form[lot_internal_type]" => key}))
+              
 
   .span8
     - @lots.each do |lot|
