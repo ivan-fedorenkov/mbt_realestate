@@ -47,5 +47,35 @@ class Lot < ActiveRecord::Base
   def lat_long
     "#{latitude.to_s},#{longitude.to_s}"
   end
+
+  def self.search(search_params = {})
+    
+    search_params.delete_if { |key, value| value.empty? }
+
+    @lots = Lot.order(:title)
+
+    if search_params[:location_id]
+      @lots = @lots.where(:location_id => search_params[:location_id])
+    end
+
+    if search_params[:type]
+      @lots = @lots.where(:type => search_params[:type])
+    end
+
+    if search_params[:lot_internal_type]
+      @lots = @lots.where(:lot_internal_type => search_params[:lot_internal_type])
+    end
+
+    if search_params[:price_from]
+      @lots = @lots.where("price_from >= ?", search_params[:price_from])
+    end
+
+    if search_params[:price_to]
+      @lots = @lots.where("(price_to <= ?) or (price_to is null and price_from <= ?)", 
+        search_params[:price_to], search_params[:price_to])
+    end
+
+    return @lots
+  end
   
 end
