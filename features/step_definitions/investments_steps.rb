@@ -12,3 +12,10 @@ end
 Допустим /^к предложению для инвестирования прикреплена фотография "(.*?)"$/ do |picture_file|
   investment.pictures << picture(:imageable => investment)
 end
+
+То /^я должен видеть все сущуствующие предложения для инвестирования$/ do
+  Investment.all.each do |investment|
+    should have_content(investment.title)
+  end
+end
+

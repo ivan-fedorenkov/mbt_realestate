@@ -1,7 +1,7 @@
 class Admin::InvestmentsController < Admin::BaseController
 
   before_filter :set_locations, :except => [:index, :show]
-  before_filter :set_investment, :only => [:show, :edit, :update]
+  before_filter :set_investment, :only => [:show, :edit, :update, :destroy]
 
   def index
     @investments = Investment.all
@@ -39,6 +39,11 @@ class Admin::InvestmentsController < Admin::BaseController
     end
   end
 
+  def destroy
+    @investment.destroy
+    flash[:notice] = "Investment has been destroyed."
+    redirect_to admin_investments_path
+  end
 
 private
   def set_locations

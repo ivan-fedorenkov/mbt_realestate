@@ -1,7 +1,7 @@
 class Admin::PlotsController < Admin::BaseController
   
   before_filter :set_locations, :except => [:index, :show]
-  before_filter :set_plot, :only => [:show, :edit, :update]
+  before_filter :set_plot, :only => [:show, :edit, :update, :destroy]
   
   def index
     @plots = Plot.all
@@ -36,6 +36,12 @@ class Admin::PlotsController < Admin::BaseController
       flash[:alert] = "Plot has not been updated."
       render :action => "edit"
     end
+  end
+
+  def destroy
+    @plot.destroy
+    flash[:notice] = "Plot has been deleted."
+    redirect_to admin_plots_path
   end
 
 private

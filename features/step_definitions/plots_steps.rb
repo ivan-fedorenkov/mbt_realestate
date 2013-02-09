@@ -12,3 +12,9 @@ end
 Допустим /^к предложению о земле прикреплена фотография "(.*?)"$/ do |picture_file|
   plot.pictures << picture(:imageable => plot)
 end
+
+То /^я должен видеть все сущуствующие предложения о продаже зеили$/ do
+  Plot.all.each do |plot|
+    should have_content(plot.title)
+  end
+end

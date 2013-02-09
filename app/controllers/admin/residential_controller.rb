@@ -1,5 +1,5 @@
 class Admin::ResidentialController < Admin::BaseController
-  before_filter :find_residential, :only => [:show, :edit, :update]
+  before_filter :find_residential, :only => [:show, :edit, :update, :destroy]
   before_filter :find_locations, :except => [:index, :show]
   
   def index
@@ -35,6 +35,12 @@ class Admin::ResidentialController < Admin::BaseController
   end
   
   def show
+  end
+
+  def destroy
+    @residential.destroy
+    flash[:notice] = "Residential has been deleted."
+    redirect_to admin_residential_index_path
   end
 
 private

@@ -4,18 +4,17 @@
   lot(:title => lot_title)
 end
 
-Допустим /^на сайте размещены следующие лоты:$/ do |lots|
+Допустим /^на сайт(?:е)? (?:размещены|добавлены) следующие лоты:$/ do |lots|
 
-  lots.map_headers!(
-    "Title" => :title,
-    "Type" => :type,
-    "Location" => :location,
-    "Price" => :price,
-    "Lot Internal Type" => :lot_internal_type)
+  lots.map_headers! do |header|
+    header.downcase.gsub(/\s+/,'_').to_sym
+  end
 
   lots.hashes.each do | lot_params |
-    location = Location.find_by_name(lot_params[:location])
-    lot_params[:location] = location
+    if lot_params[:location]
+      location = Location.find_by_name(lot_params[:location])
+      lot_params[:location] = location
+    end
     FactoryGirl.create(:lot, lot_params)
   end
 end

@@ -52,7 +52,7 @@ end
   click_button button_title
 end
 
-Допустим /^перехожу в раздел (.*)$/ do |section_human_name|
+Допустим /^(?:я )?перехожу в раздел (.*)$/ do |section_human_name|
   within('#navigation-panel') { click_link get_section_link_title(section_human_name) }
 end
 

@@ -39,6 +39,14 @@ end
   end
 end
 
+
+То /^я должен видеть все сущуствующие предложения о жилье$/ do
+  Residential.all.each do |residential|
+    should have_content(residential.title)
+  end
+end
+
+
 Когда /^я перехожу по ссылке "(.*?)" предложения о жилье "(.*?)"$/ do |link_title, residential_title|
   @residential = Residential.where(:title => residential_title).first
   find("#residential_#{@residential.id}").find_link(link_title).click
