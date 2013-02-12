@@ -56,8 +56,8 @@ $(function() {
     $('.showcase').show();
     $("#carousel").awShowcase(
     {
-      content_width:      590,
-      content_height:     326,
+      content_width:      620,
+      content_height:     286,
       fit_to_parent:      false,
       auto:         true,
       interval:       3000,

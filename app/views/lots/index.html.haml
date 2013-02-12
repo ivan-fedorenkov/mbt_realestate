@@ -33,10 +33,27 @@
             = f.submit "Go", :class => 'btn btn-primary pull-right'
 
   .span8.home_carousel.no_margin_left.pull-right
+    #carousel-loader
+    #carousel.showcase
+      .showcase-slide
+        .showcase-content
+          = image_tag "pic01.png"
+      .showcase-slide
+        .showcase-content
+          = image_tag "pic02.png"
+      .showcase-slide
+        .showcase-content
+          = image_tag "pic03.png"
+      .showcase-slide
+        .showcase-content
+          = image_tag "pic04.png"
+      .showcase-slide
+        .showcase-content
+          = image_tag "pic05.png"
 
 
 
-    
+%br/
 .row
   .span4
     = display_header :normal => "Company", :bolded => "activity #1"
