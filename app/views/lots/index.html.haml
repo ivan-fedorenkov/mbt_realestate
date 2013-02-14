@@ -37,38 +37,38 @@
     #carousel.showcase
       .showcase-slide
         .showcase-content
-          = image_tag "pic01.png"
+          = image_tag "home/pic01.jpg"
       .showcase-slide
         .showcase-content
-          = image_tag "pic02.png"
+          = image_tag "home/pic02.jpg"
       .showcase-slide
         .showcase-content
-          = image_tag "pic03.png"
+          = image_tag "home/pic03.jpg"
       .showcase-slide
         .showcase-content
-          = image_tag "pic04.png"
+          = image_tag "home/pic04.jpg"
       .showcase-slide
         .showcase-content
-          = image_tag "pic05.png"
+          = image_tag "home/pic05.jpg"
 
 
 
 %br/
 .row
   .span4
-    = display_header :normal => "Company", :bolded => "activity #1"
+    = display_header :normal => "Permanent", :bolded => "Residence in Cyprus"
     %a{:href => '#'}
-      = image_tag 'latest_properties.jpg'
+      = image_tag 'home/activity_one.jpg'
     %p
-      Sign up for our weekly newsletter and stay up-to-date with the latest offers, and newest products.
+      According to the provisions of Regulation 6(2) of the Aliens and Immigration Regulations, the Minister of the Interior decided to issue Immigration Permit to applicants, who are third country nationals, provided that they fulfill the following criteria:
       %a{:href => '#', :class => 'pull-right'} more...
   .span4
-    = display_header :normal => "Company", :bolded => "activity #2"
-    %a{:href => '#'}
-      = image_tag 'new_homes.png'
+    = display_header :normal => "Property", :bolded => "Services"
+    %a{:href => static_property_services_path}
+      = image_tag 'home/activity_two.jpg'
     %p
-      Sign up for our weekly newsletter and stay up-to-date with the latest offers, and newest products.
-      %a{:href => '#', :class => 'pull-right'} more...
+      We are a real-estate developer in Cyprus focusing purely on creating luxurious properties for buyers at the top-end of the wealth scale.
+      %a{:href => static_property_services_path, :class => 'pull-right'} more...
   .span4
     = display_header :normal => "Company", :bolded => "activity #3"
     %a{:href => '#'}
