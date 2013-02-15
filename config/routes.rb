@@ -44,8 +44,9 @@ MbtRealestate::Application.routes.draw do
   namespace :static do
     get :property_services
     get :our_services
-    get :our_mission
-    get :our_strategy
+    get :mission
+    get :strategy
+    get :development_concept
   end
   
 end

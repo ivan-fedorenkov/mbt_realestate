@@ -3,10 +3,11 @@ class StaticController < ApplicationController
   end
   def our_services
   end
-  def our_mission
+  def mission
   end
-  def our_strategy
+  def strategy
   end
-  
+  def development_concept
+  end
 
 end
