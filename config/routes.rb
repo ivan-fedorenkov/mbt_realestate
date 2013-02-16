@@ -47,6 +47,12 @@ MbtRealestate::Application.routes.draw do
     get :mission
     get :strategy
     get :development_concept
+
+    get :permanent_residence_index
+    get :permanent_residence
+    get :why_cyprus
+    get :required_documents
+    get :naturalisation_in_cyprus
   end
   
 end
