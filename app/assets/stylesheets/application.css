@@ -19,3 +19,7 @@
 .wysihtml5 {
   width: 90%
 }
+
+.full-width {
+  min-width: 100%
+}
