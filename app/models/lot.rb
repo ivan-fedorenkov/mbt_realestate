@@ -1,6 +1,6 @@
 class Lot < ActiveRecord::Base
 
-  has_many :pictures, :as => :imageable
+  has_many :pictures, :as => :imageable, :dependent => :destroy
   belongs_to :location
   
   range_fields :price, :plot, :bedrooms, :baths, :covered_area, :opened_veranda, :levels, :parking
