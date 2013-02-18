@@ -1,6 +1,8 @@
 %legend
   = link_to 'Property Services', static_property_services_path
-  = "/ Strategy"
+  = "/"
+  %strong
+    Strategy
 
 .row
   .span8.offset1
@@ -8,22 +10,27 @@
       <strong>MBT</strong> Company <strong>Modern Building Technology</strong> (Cyprus) - is a development company that specializes in building elite «Premium» class real estate in Cyprus.
 
     %p
-      = image_tag 'static/property_services/strategy/1.jpg', :class => 'full-width'
+      = image_tag 'static/property_services/strategy/1.jpg', :class => 'full-width', :style => 'max-height: 340px;'
 
     %p
       Since 2002 the Company has developed successfully. During this period we have gained a wealth of experience in building, providing financial advice, sales, management and in PR techniques of real estate. We have cooperated and collaborated with many subdivisions, companies, legal entities, financial institutes and public organizations. All projects of <strong>MBT</strong> Company are located in Larnaca town with the most potential for growth and development of projects at a similar level.
 
-    %p
-      = image_tag 'static/property_services/strategy/2.jpg'
 
-    %p
-      The European Union and the Government of Cyprus plan to make Larnaca a business-center, to bind Europe to Asia and Africa with the combination of air and marine transport (sending part of the passenger flow from Europe to south-east Asia at OAE).
+    .row
+      .span2
+        %p
+          The European Union and the Government of Cyprus plan to make Larnaca a business-center, to bind Europe to Asia and Africa with the combination of air and marine transport (sending part of the passenger flow from Europe to south-east Asia at OAE).
+      .span6
+        %p
+          = image_tag 'static/property_services/strategy/2.jpg'
+
+    
 
     %p
       The European Union directed the first investments at modernization and the development of communications, connection and transport. The next logical stage of development is a requirement of modern office centers and high quality residences.
 
     %p
-      = image_tag 'static/property_services/strategy/3.jpg'
+      = image_tag 'static/property_services/strategy/3.jpg', :style => 'max-width: 60%;'
 
     %p
       The segment of the real estate «Premium» market in Cyprus is at the stage of being in the most attractive position for legal entities and private investors.
