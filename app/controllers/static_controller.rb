@@ -10,9 +10,13 @@ class StaticController < ApplicationController
   def development_concept
   end
 
-  def permanent_residence_index
-  end
   def permanent_residence
+  end
+  def required_documents
+  end
+  def why_cyprus
+  end
+  def naturalisation
   end
 
 end
