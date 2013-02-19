@@ -23,4 +23,11 @@ class StaticController < ApplicationController
   end
   def investing_in_cyprus
   end
+  def strategic_location
+  end
+  def economic_background
+  end
+  def larnaca
+  end
+  
 end
