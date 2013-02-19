@@ -19,4 +19,8 @@ class StaticController < ApplicationController
   def naturalisation
   end
 
+  def about_cyprus
+  end
+  def investing_in_cyprus
+  end
 end

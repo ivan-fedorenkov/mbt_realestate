@@ -52,6 +52,16 @@ MbtRealestate::Application.routes.draw do
     get :why_cyprus
     get :required_documents
     get :naturalisation
+
+    get :about_cyprus
+    get :investing_in_cyprus
+    get :strategic_location
+    get :economic_background
+    get :larnaca
+    get :tourist_industry
+    get :access_and_transport
+    get :property_market
+    get :massive_investment
   end
   
 end
