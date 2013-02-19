@@ -74,7 +74,8 @@
     %p
       %strong
         For more information on this please 
-        = mail_to MbtRealestate::Application.config.admin_email, "contact us.", :encode => "javascript"
+        %u
+          = mail_to MbtRealestate::Application.config.admin_email, "contact us.", :encode => "javascript"
 
   #portamento_container.span4
     #navigation-links
