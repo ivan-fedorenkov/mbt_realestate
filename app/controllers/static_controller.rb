@@ -33,5 +33,7 @@ class StaticController < ApplicationController
   end
   def access_and_transport
   end
+  def proprty_market
+  end
   
 end
