@@ -31,5 +31,7 @@ class StaticController < ApplicationController
   end
   def tourist_industry
   end
+  def access_and_transport
+  end
   
 end
