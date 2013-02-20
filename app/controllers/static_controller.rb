@@ -29,5 +29,7 @@ class StaticController < ApplicationController
   end
   def larnaca
   end
+  def tourist_industry
+  end
   
 end
