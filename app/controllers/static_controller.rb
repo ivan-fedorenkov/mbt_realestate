@@ -35,5 +35,7 @@ class StaticController < ApplicationController
   end
   def proprty_market
   end
+  def massive_investment
+  end
   
 end
