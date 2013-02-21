@@ -5,19 +5,19 @@
         .row
           .span3
             .control-group
-              = f.label :type, "I want to"
+              = f.label :type, "<h3>I want to</h3>".html_safe
               .controls
                 = f.select :type, @lot_search_form.types
         .row
           .span3
             .control-group
-              = f.label :location_id, "In the following location"
+              = f.label :location_id, "<h3>In the following location</h3>".html_safe
               .controls
                 = f.select :location_id, @lot_search_form.locations, {}, :class => 'span2 focused'
 
         .row
           .span3
-            = f.label :price_from, "For the following price"
+            = f.label :price_from, "<h3>For the following price</h3>".html_safe
         .row
           .span1
             .control-group
