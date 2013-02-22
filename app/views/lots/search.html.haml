@@ -60,21 +60,28 @@
             Price: 
             = display_price(lot.price_from)
           - if lot.type == "Residential" or lot.type == "Investment"
-            %h6 Sqft: #{lot.covered_area}
+            %h6 Sqm: #{lot.covered_area}
             %h6 Dist to sea: #{lot.distance_to_sea}
             %h6 Bedrooms: #{lot.bedrooms}
           - else
-            %h6 Sqft: #{lot.plot}
+            %h6 Sqm: #{lot.plot}
         .span6
           %a{:href => lot_path(lot)}
             %h3= lot.title
 
           - if lot.type == "Residential" or lot.type == "Investment"
-            - if lot.features.to_a.length > 0 
-              %p
+            .row
+              .span3
                 %ul
-                  - lot.features.to_a[0][1][0..3].each do |feature|
-                    %li= feature
+                  %li Location: #{lot.location.name}
+                  %li Dist. to sea: #{display_meters_or_kilometers lot.distance_to_sea}
+                  %li Covered area: #{display_square_meters lot.covered_area}
+                  %li Bedrooms: #{lot.bedrooms}
+              - if lot.features.to_a.length > 0 
+                .span3
+                  %ul
+                    - lot.features.to_a[0][1][0..3].each do |feature|
+                      %li= feature
           - else
             %p= raw(truncate_words(lot.description, 50))
           %p
