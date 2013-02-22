@@ -9,12 +9,12 @@ $(->
       mapOptions = 
         zoom: 15
         center: root.mapCenter
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.HYBRID
         zoomControl: true
         streetViewControl: false
         rotateControl: false
         overviewMapControl: false
-        mapTypeControl: false
+        mapTypeControl: true
   
       root.map = new google.maps.Map(document.getElementById('mapModalMap'), mapOptions)
       mapMarker = new google.maps.Marker({position: root.mapCenter, map: root.map})

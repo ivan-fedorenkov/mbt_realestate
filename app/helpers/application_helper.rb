@@ -35,6 +35,7 @@ module ApplicationHelper
     params += "&size=#{args[:size]}" if args[:size]
     params += "&zoom=#{args[:zoom]}" if args[:zoom]
     params += "&sensor=#{args[:sensor] or false}"
+    params += "&maptype=hybrid"
     
     map.gsub!("@params", params)
    
