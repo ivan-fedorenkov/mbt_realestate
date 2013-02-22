@@ -13,5 +13,9 @@ class Investment < Lot
     {:detached_house => 'Detached House',
      :semi_detached => 'Semi Detached',
      :town_house => 'Town House',
-     :apartment => 'Apartment'}
+     :apartment => 'Apartment',
+     :mesonet => 'Mesonet',
+     :villa => 'Villa',
+     :business_center => 'Business Center',
+     :hotel => 'Hotel 5 Star'}
 end
