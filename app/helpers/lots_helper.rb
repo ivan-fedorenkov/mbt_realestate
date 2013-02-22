@@ -1,17 +1,21 @@
 module LotsHelper
+
   def display_price(price)
-    if(price.to_i >= 1000)
-      price = price.to_s
-      price_length = price.length
-      current_position = price_length - 3
-      begin
-        if (((price_length - current_position) % 3) == 0)
-          price = price.insert(current_position, ",")
-        end 
-        current_position -= 1
-      end while current_position > 0
+    price = price.to_s.gsub(/\d+/) do |subprice|
+      if(subprice.to_i >= 1000)
+        subprice = subprice.to_s
+        price_length = subprice.length
+        current_position = price_length - 3
+        begin
+          if (((price_length - current_position) % 3) == 0)
+            subprice = subprice.insert(current_position, ",")
+          end 
+          current_position -= 1
+        end while current_position > 0
+      end
+      subprice
     end
-    
+
     return "&euro; #{price}".html_safe
   end
 

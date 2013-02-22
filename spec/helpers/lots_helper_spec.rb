@@ -10,6 +10,10 @@ describe LotsHelper do
       number = "1"
       display_price(number).should eql("&euro; 1")
     end
+    it "should be able to handle range price" do
+      number = "120000 - 200000"
+      display_price(number).should eql("&euro; 120,000 - 200,000")
+    end
   end
   describe "display_boolean_field" do
 

@@ -1,5 +1,5 @@
 .row
-  .span5
+  .span4
     %h3= residential.title
     - if residential.title_deed_ready
       %span{:class => ['label','label-success']} Title deed ready
@@ -9,7 +9,7 @@
       %span{:class => ['label','label-success']} VAT included
     - else
       %span{:class => ['label']} VAT not included
-  .span3.text-right
+  .span4.text-right
     %h2= display_price(residential.price)
 
 - if residential.pictures
