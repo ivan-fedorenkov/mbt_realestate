@@ -13,16 +13,11 @@
   %body
     .container
       .row
-        .span4.logo
+        .span4
           %a{:href => root_path}
-            .row
-              .span4
-                %h1
-                  %small MBT
-                  %br/
-                  %span Real 
-                  estate    
-        .span4.customer_service.pull-right.text-right
+            = image_tag 'logo.jpg'
+        .span4.pull-right.text-right
+          %br/
           %br/
           %h4 Customer service: 0800 8475 548
           %h4 
