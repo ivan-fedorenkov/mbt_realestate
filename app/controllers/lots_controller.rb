@@ -3,7 +3,7 @@ class LotsController < ApplicationController
   before_filter :set_lot, :only => [:show]
   
   def index
-    @lots = Lot.all
+    @lots = Lot.where(:type => "Residential").order(:price => :asc)
     @lot_search_form = LotSearchForm.new
   end  
   
