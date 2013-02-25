@@ -74,9 +74,11 @@ MbtRealestate::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
-  # Configure paperclip to use a dropbox storage
+  # Configure paperclip to use a s3 storage
   config.paperclip_defaults = { 
-    :storage => :dropbox, 
-    :dropbox_credentials => "#{Rails.root}/config/dropbox.yml"
+    :storage => :s3, 
+    :s3_credentials => "#{Rails.root}/config/s3.yml"
+    :bucket => "mbt-realestate"
+    :s3_storage_class => :reduced_redundancy
   }
 end

@@ -71,4 +71,4 @@ gem 'faker'
 gem 'rails-i18n'
 gem 'devise'
 gem 'paperclip', "~> 3.0"
-gem 'paperclip-dropbox', "~> 1.1.1"
+gem 'aws-sdk'
