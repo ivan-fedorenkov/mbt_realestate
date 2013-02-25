@@ -14,7 +14,7 @@
   .row
     .span4
       = f.label :location_id, "Location"
-      = f.select :location_id, options_from_collection_for_select(@locations, :id, :name)
+      = f.collection_select :location_id, @locations, :id, :name
     .span2
       = f.label :latitude
       = f.text_field :latitude, :class => "input-mini"
