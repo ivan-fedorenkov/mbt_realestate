@@ -14,6 +14,8 @@ class LotsController < ApplicationController
   def search
     @lot_search_form = LotSearchForm.new(params[:lot_search_form])
     @lots = Lot.search(params[:lot_search_form])
+              .includes(:pictures)
+              .includes(:location)
   end
 
 
