@@ -142,7 +142,6 @@ GEM
     method_source (0.8.1)
     mime-types (1.21)
     multi_json (1.6.0)
-    newrelic_rpm (3.5.6.46)
     nokogiri (1.5.6)
     orm_adapter (0.4.0)
     paperclip (3.4.0)
@@ -278,7 +277,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   less-rails
-  newrelic_rpm
   paperclip (~> 3.0)
   pg
   rails (= 3.2.12)
