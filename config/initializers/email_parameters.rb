@@ -1,1 +1,1 @@
-MbtRealestate::Application.config.admin_email = "ivan.fedorenkov@gmail.com"
+MbtRealestate::Application.config.admin_email = "mbtgroupcy@gmail.com"
