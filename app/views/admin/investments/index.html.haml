@@ -3,12 +3,4 @@
     .pull-right
       = link_to "New Investment", new_admin_investment_path, :class => 'btn btn-primary'
 
-.row
-  .span12
-    %ol#investments-list
-      - @investments.each do |investment|
-        %li
-          %span[investment]
-            = link_to investment.title, admin_investment_path(investment)
-            = link_to "Edit", edit_admin_investment_path(investment), :class => 'btn btn-mini'
-            = link_to "Delete", admin_investment_path(investment), :method => :delete, :confirm => "Are you sure?", :class => 'btn btn-mini btn-danger'
+= render :partial => 'admin/lots/table', :locals => { :lots => @investments }

@@ -1,0 +1,18 @@
+.row{:class => 'admin-lots-table'}
+  .span8
+    %table#lots-list.table.table-bordered.table-striped
+      %thead
+        %tr
+          %th Title
+          %th Created at
+          %th Updated at
+          %th Actions
+      %tbody
+        - lots.each do |lot|
+          %tr[lot]
+            %td= link_to lot.title, [:admin, lot]
+            %td= lot.created_at
+            %td= lot.updated_at
+            %td              
+              = link_to "Edit", [:edit, :admin, lot], :class => 'btn btn-mini'
+              = link_to "Delete", [:admin, lot], :method => :delete, :confirm => "Are you sure?", :class => 'btn btn-mini btn-danger'
