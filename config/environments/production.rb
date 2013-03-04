@@ -80,6 +80,7 @@ MbtRealestate::Application.configure do
     :s3_credentials => "#{Rails.root}/config/s3.yml",
     :bucket => "mbt-realestate",
     :s3_storage_class => :reduced_redundancy,
-    :url => ":s3_domain_url"
+    :url => ":s3_domain_url",
+    :path => "MBT/pictures/:style/:id_:basename_:style.:content_type_extension"
   }
 end
