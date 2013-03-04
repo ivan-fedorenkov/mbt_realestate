@@ -4,11 +4,11 @@ module KnowsThePageStructure
   def get_selector(selector_human_name)
     return case selector_human_name
       when /списке предложений о жилье/
-        "#residential-list"
+        "#lots-list"
       when /списке предложений для инвестирования/
         "#lots-list"
       when /списке предложений о продаже земли/
-        "#plots-list"
+        "#lots-list"
       when /списке фотографий/
         "#pictures-list"
       when /в списке статей/

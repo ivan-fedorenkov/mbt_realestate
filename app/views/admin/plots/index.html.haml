@@ -3,13 +3,5 @@
     .pull-right
       = link_to "New Plot", new_admin_plot_path, :class => 'btn btn-primary'
       
-.row
-  .span12
-    %ol#plots-list
-      - @plots.each do |plot|
-        %li
-          %span[plot]
-            = link_to plot.title, admin_plot_path(plot)
-            = link_to "Edit", edit_admin_plot_path(plot), :class => 'btn btn-mini'
-            = link_to "Delete", admin_plot_path(plot), :method => :delete, :confirm => "Are you sure?", :class => 'btn btn-mini btn-danger'
+= render :partial => 'admin/lots/table', :locals => { :lots => @plots }
 
