@@ -39,7 +39,7 @@ class LotSearchForm
     @prices_from = [["Min", 0],[1000],[2000],[2500],[3000],[3500],[4000],[4500],[5000]]
     @prices_to = [["Max", ""],[1000],[2000],[2500],[3000],[3500],[4000],[4500],[5000]]
 
-    @types = [["Find a residential","Residential"],["Invest money in something","Investment"],["Buy a plot or land","Plot"]]
+    @types = [["Find a residence","Residential"],["Invest money","Investment"],["Buy a plot or land","Plot"]]
   end
 
   def persisted?

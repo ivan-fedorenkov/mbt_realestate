@@ -19,9 +19,10 @@
         .span4.pull-right.text-right
           %br/
           %br/
-          %h4 Customer service: +357 24 828200
+          %br/
           %h4 
-            %small 24 hours a day, 7 days a week      
+            Customer service: 
+            = mail_to MbtRealestate::Application.config.admin_email, nil, :encode => "javascript"
       
       .row#navigation-panel
         .span12= render 'navbar'
