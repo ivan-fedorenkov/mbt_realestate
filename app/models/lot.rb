@@ -37,12 +37,11 @@ class Lot < ActiveRecord::Base
   after_initialize :initialize_features
   
   def initialize_features
-    #@features = Features.new(additional_features)
+    @features = Features.new(additional_features)
   end
   
   def features
-    #@features.to_hash
-    {}
+    @features.to_hash
   end
 
   def lat_long
