@@ -33,7 +33,15 @@ class Lot < ActiveRecord::Base
     :format => { :with => Features.validation_format }, 
     :allow_nil => true, 
     :allow_blank => true
-     
+
+  def self.location_field
+    :location_
+  end
+
+  extend StaticLocation
+
+  
+
   after_initialize :initialize_features
   
   def initialize_features

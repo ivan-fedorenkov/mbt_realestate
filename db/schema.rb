@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130305052715) do
+ActiveRecord::Schema.define(:version => 20130305231511) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(:version => 20130305052715) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.integer  "position",   :default => 0
-    t.string   "type"
   end
 
   add_index "articles", ["position"], :name => "index_articles_on_position"
@@ -81,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20130305052715) do
     t.boolean  "include_vat"
     t.text     "description"
     t.date     "delivery_date"
+    t.string   "location_"
   end
 
   add_index "lots", ["location_id"], :name => "index_residentials_on_location_id"
