@@ -1,8 +1,8 @@
 class Features
   
   @@option_regexp = %r{\s*[^@]+}
-  @@feature_regexp = %r{\s*[^@]+=>(#{@@option_regexp}@@)*#{@@option_regexp}}
-  @@features_regexp = %r{^(#{@@feature_regexp}@@@)*#{@@feature_regexp}\s*$}
+  @@feature_regexp = %r{\s*[^@]+?=>(#{@@option_regexp}(@@)?)+}
+  @@features_regexp = %r{^\s*(#{@@feature_regexp}(@@@)?)+\s*$}
   
   def initialize(features_string)
     @features = {}
@@ -24,6 +24,6 @@ class Features
   end
   
   def self.validation_format
-    @@feature_regexp
+    @@features_regexp
   end
 end

@@ -89,6 +89,8 @@ describe Lot do
     describe "additional features" do
       it "should not allow string that is not in predefined format" do
         create_should_raise_record_invalid(:lot, :additional_features => "invalid features string")
+        create_should_raise_record_invalid(:lot, :additional_features => 
+          "invalid features string @@@ feature#1 => option1")
       end
       it "should allow string in predefined format" do
         create_should_not_raise_record_invalid(
