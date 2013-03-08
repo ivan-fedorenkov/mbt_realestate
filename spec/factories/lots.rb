@@ -2,11 +2,14 @@
 
 FactoryGirl.define do
   factory :lot do
-    title "Test lot title"
+    sequence(:title) { |n| "A testing lot ##{n}" }
+    location_ { StaticLocation::Location.locations[Random.rand(StaticLocation::Location.locations.length)] }
     latitude 29.9902
     longitude 33.0567
-    location { FactoryGirl.create(:location) }
+    
     plot 230
     price 100000
+
+    location
   end
 end

@@ -5,7 +5,8 @@ class Investment < Lot
     :private_pool, :title, :lot_internal_type,
     :additional_features, :include_vat,
     :location_id, :latitude, :longitude, :opened_veranda, 
-    :distance_to_sea, :parking, :description, :delivery_date
+    :distance_to_sea, :parking, :description, :delivery_date, 
+    :location_
 
   validates :delivery_date, :presence => true
 

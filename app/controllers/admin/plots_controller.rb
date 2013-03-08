@@ -1,6 +1,5 @@
 class Admin::PlotsController < Admin::BaseController
   
-  before_filter :set_locations, :except => [:index, :show]
   before_filter :set_plot, :only => [:show, :edit, :update, :destroy]
   
   def index
@@ -45,10 +44,6 @@ class Admin::PlotsController < Admin::BaseController
   end
 
 private
-  def set_locations
-    @locations = Location.all
-  end
-  
   def set_plot
     begin
       @plot = Plot.includes(:pictures).find(params[:id])

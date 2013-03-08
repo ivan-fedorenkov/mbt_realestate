@@ -5,7 +5,7 @@ class Residential < Lot
     :private_pool, :title, :lot_internal_type,
     :additional_features, :title_deed_ready, :include_vat,
     :location_id, :latitude, :longitude, :opened_veranda, 
-    :distance_to_sea, :parking
+    :distance_to_sea, :parking, :location_
     
   # Residential could be one of the following types
   symbolize :lot_internal_type, :in => 

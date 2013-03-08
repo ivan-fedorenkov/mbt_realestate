@@ -5,7 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-["Famagusta","Limassol","Larnaca","Nicosia","Paphos"].each do |location|
-  Location.create(:name => location)
-end

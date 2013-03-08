@@ -85,7 +85,7 @@ module KnowsTheForms
       when /I want to/
         ["type", :select_box]
       when /Where/
-        ["location_id", :select_box]
+        ["location", :select_box]
       when /Price from/
         ["price_from", :select_box]
       when /Price to/

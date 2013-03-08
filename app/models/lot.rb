@@ -5,7 +5,7 @@ class Lot < ActiveRecord::Base
   
   range_fields :price, :plot, :bedrooms, :baths, :covered_area, :opened_veranda, :levels, :parking
   
-  validates :title, :location, :presence => true
+  validates :title, :presence => true
   
   validates :title_deed_ready, :private_pool, :communal_pool, :include_vat,
     :inclusion => { :in => [true, false] },
@@ -62,8 +62,8 @@ class Lot < ActiveRecord::Base
 
     @lots = Lot.order(:title)
 
-    if search_params[:location_id]
-      @lots = @lots.where(:location_id => search_params[:location_id])
+    if search_params[:location]
+      @lots = @lots.where(:location_ => search_params[:location])
     end
 
     if search_params[:type]

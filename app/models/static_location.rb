@@ -10,7 +10,8 @@ module StaticLocation
 
   def self.extended(extended_by)
     extended_by.class_eval %Q{
-      validates self.location_field, :inclusion => { :in => StaticLocation::Location.locations }
+      validates self.location_field, :inclusion => { :in => StaticLocation::Location.locations }, 
+                                     :allow_nil => false
     }
   end
 

@@ -1,6 +1,5 @@
 class Admin::InvestmentsController < Admin::BaseController
 
-  before_filter :set_locations, :except => [:index, :show]
   before_filter :set_investment, :only => [:show, :edit, :update, :destroy]
 
   def index
@@ -46,10 +45,6 @@ class Admin::InvestmentsController < Admin::BaseController
   end
 
 private
-  def set_locations
-    @locations = Location.all
-  end
-
   def set_investment
     begin
       @investment = Investment.includes(:pictures).find(params[:id])

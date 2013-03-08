@@ -14,9 +14,9 @@
             .row
               .span3
                 .control-group
-                  = f.label :location_id, "Location", :class => 'control-label'
+                  = f.label :location, "Location", :class => 'control-label'
                   .controls
-                    = f.select :location_id, @lot_search_form.locations, {}, :class => 'span2'
+                    = f.select :location, @lot_search_form.locations, {}, :class => 'span2'
 
             .row
               .span3
@@ -73,7 +73,7 @@
             .row
               .span3
                 %ul
-                  %li Location: #{lot.location.name}
+                  %li Location: #{lot.location_}
                   %li Dist. to sea: #{display_meters_or_kilometers lot.distance_to_sea}
                   %li Covered area: #{display_square_meters lot.covered_area}
                   %li Bedrooms: #{lot.bedrooms}

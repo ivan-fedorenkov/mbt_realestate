@@ -3,7 +3,7 @@ class LotSearchForm
   include ActiveModel::Conversion
 
 
-  attr_accessor :type, :location_id, :price_from, :price_to, :lot_internal_type
+  attr_accessor :type, :location, :price_from, :price_to, :lot_internal_type
   attr_reader :types, 
     :locations, 
     :residential_lot_internal_types, 
@@ -16,7 +16,7 @@ class LotSearchForm
 
     defaults = {
       "type" => "Residential",
-      "location_id" => "",
+      "location" => "",
       "price_from" => "0",
       "price_to" => "",
       "lot_internal_type" => ""
@@ -34,7 +34,7 @@ class LotSearchForm
     Plot.get_lot_internal_type_values.map { |key, value| @plots_lot_internal_types << [value,key] }
 
     @locations = [["All",""]]
-    Location.all.each { |location| @locations << [location.name, location.id] }
+    StaticLocation::Location.locations.each { |location| @locations << [location, location] }
 
     @prices_from = [["Min", 0],[1000],[2000],[2500],[3000],[3500],[4000],[4500],[5000]]
     @prices_to = [["Max", ""],[1000],[2000],[2500],[3000],[3500],[4000],[4500],[5000]]

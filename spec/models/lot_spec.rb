@@ -2,9 +2,20 @@ require 'spec_helper'
 
 describe Lot do
   describe "validation constraints" do
-    [:title, :location].each do |field|
+    [:title, :location_].each do |field|
       it "#{field} should not be empty" do
         create_should_raise_record_invalid(:lot, field => nil)
+      end
+    end
+
+    describe "location_" do
+      it "should accept predefined locations" do
+        StaticLocation::Location.locations.each do |location|
+          create_should_not_raise_record_invalid(:lot, :location_ => location)
+        end
+      end
+      it "should not accept other then predefined locations" do
+        create_should_raise_record_invalid(:lot, :location_ => "ivalid location")
       end
     end
 

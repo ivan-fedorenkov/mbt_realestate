@@ -11,9 +11,9 @@
         .row
           .span3
             .control-group
-              = f.label :location_id, "In the following location".html_safe
+              = f.label :location, "In the following location".html_safe
               .controls
-                = f.select :location_id, @lot_search_form.locations, {}, :class => 'span2 focused'
+                = f.select :location, @lot_search_form.locations, {}, :class => 'span2 focused'
 
         .row
           .span3
@@ -103,6 +103,6 @@
           %tr
             %td= link_to lot.title, lot_path(lot)
             %td= lot.type
-            %td= lot.location.name
+            %td= lot.location_
             %td= display_price(lot.price)
             %td= link_to "View", lot_path(lot)

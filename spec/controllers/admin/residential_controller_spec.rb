@@ -38,15 +38,5 @@ describe Admin::ResidentialController do
       end
     end
     
-    {:new => :get, :create => :post, :edit => :get, :update => :put}.each do |action, method|
-      it "should set a list of locations for #{action} action" do
-        stub_residential!
-        location_list = double("location list")
-        Location.stub(:all).and_return(location_list)
-        send(method, action, :id => @residential.id)
-        expect(assigns[:locations]).to eql(location_list)
-      end
-    end
-    
   end  
 end
