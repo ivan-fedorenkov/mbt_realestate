@@ -20,8 +20,8 @@
     
   .row
     .span4
-      = f.label :location_, "Location"
-      = f.select :location_, options_for_select(static_locations, @investment.location_)
+      = f.label :location, "Location"
+      = f.select :location, options_for_select(static_locations, @investment.location)
     .span2
       = f.label :latitude
       = f.text_field :latitude, :class => "input-mini"

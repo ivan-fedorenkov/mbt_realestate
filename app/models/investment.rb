@@ -4,9 +4,9 @@ class Investment < Lot
     :covered_area, :levels, :plot, :price, 
     :private_pool, :title, :lot_internal_type,
     :additional_features, :include_vat,
-    :location_id, :latitude, :longitude, :opened_veranda, 
+    :latitude, :longitude, :opened_veranda, 
     :distance_to_sea, :parking, :description, :delivery_date, 
-    :location_
+    :location
 
   validates :delivery_date, :presence => true
 

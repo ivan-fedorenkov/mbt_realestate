@@ -76,11 +76,6 @@ module KnowsTheRoutes
       when /странице этого лота/
         lot_path(lot)
 
-
-      when /странице редактирования регионов/
-        admin_locations_path
-      when /странице редактирования этого региона/
-        edit_admin_location_path(location)
         
       when /странице входа в учётную запись/
         new_admin_session_path

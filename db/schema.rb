@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130305231511) do
+ActiveRecord::Schema.define(:version => 20130309223537) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -41,12 +41,6 @@ ActiveRecord::Schema.define(:version => 20130305231511) do
 
   add_index "articles", ["position"], :name => "index_articles_on_position"
 
-  create_table "locations", :force => true do |t|
-    t.string "name", :null => false
-  end
-
-  add_index "locations", ["name"], :name => "index_locations_on_name", :unique => true
-
   create_table "lots", :force => true do |t|
     t.string   "title"
     t.string   "lot_internal_type"
@@ -59,7 +53,6 @@ ActiveRecord::Schema.define(:version => 20130305231511) do
     t.float    "longitude",                          :default => 0.0
     t.integer  "distance_to_sea"
     t.boolean  "title_deed_ready"
-    t.integer  "location_id"
     t.string   "type"
     t.integer  "price_from"
     t.integer  "price_to"
@@ -80,10 +73,9 @@ ActiveRecord::Schema.define(:version => 20130305231511) do
     t.boolean  "include_vat"
     t.text     "description"
     t.date     "delivery_date"
-    t.string   "location_"
+    t.string   "location"
   end
 
-  add_index "lots", ["location_id"], :name => "index_residentials_on_location_id"
   add_index "lots", ["type"], :name => "index_lots_on_type"
 
   create_table "pictures", :force => true do |t|

@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :investment do
     title "Investment title"
-    location_ { StaticLocation::Location.locations[Random.rand(StaticLocation::Location.locations.length)] }
+    location { StaticLocation::Location.locations[Random.rand(StaticLocation::Location.locations.length)] }
     lot_internal_type :detached_house
     include_vat { true }
     delivery_date { Date.today }
@@ -19,7 +19,5 @@ FactoryGirl.define do
     private_pool false
     communal_pool false
     description "An investment description"
-
-    location
   end
 end

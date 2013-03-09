@@ -11,10 +11,6 @@ end
   end
 
   lots.hashes.each do | lot_params |
-    if lot_params[:location]
-      lot_params[:location_] = lot_params[:location]
-      lot_params.delete(:location)
-    end
     FactoryGirl.create(:lot, lot_params)
   end
 end

@@ -1,7 +1,6 @@
 class Lot < ActiveRecord::Base
 
   has_many :pictures, :as => :imageable, :dependent => :destroy
-  belongs_to :location
   
   range_fields :price, :plot, :bedrooms, :baths, :covered_area, :opened_veranda, :levels, :parking
   
@@ -34,13 +33,8 @@ class Lot < ActiveRecord::Base
     :allow_nil => true, 
     :allow_blank => true
 
-  def self.location_field
-    :location_
-  end
-
   extend StaticLocation
-
-  
+ 
 
   after_initialize :initialize_features
   
@@ -63,7 +57,7 @@ class Lot < ActiveRecord::Base
     @lots = Lot.order(:title)
 
     if search_params[:location]
-      @lots = @lots.where(:location_ => search_params[:location])
+      @lots = @lots.where(:location => search_params[:location])
     end
 
     if search_params[:type]

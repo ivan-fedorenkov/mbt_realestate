@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :residential do
     title "Residential title"
-    location_ { StaticLocation::Location.locations[Random.rand(StaticLocation::Location.locations.length)] }
+    location { StaticLocation::Location.locations[Random.rand(StaticLocation::Location.locations.length)] }
     lot_internal_type :detached_house
     title_deed_ready { true }
     include_vat { true }
@@ -20,7 +20,5 @@ FactoryGirl.define do
     price 1
     private_pool false
     communal_pool false
-    
-    location 
   end
 end
