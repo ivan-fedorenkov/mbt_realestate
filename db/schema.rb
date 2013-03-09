@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309223537) do
+ActiveRecord::Schema.define(:version => 20130309231635) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20130309223537) do
     t.string   "location"
   end
 
+  add_index "lots", ["location"], :name => "index_lots_on_location"
   add_index "lots", ["type"], :name => "index_lots_on_type"
 
   create_table "pictures", :force => true do |t|
