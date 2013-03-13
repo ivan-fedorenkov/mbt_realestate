@@ -1,4 +1,4 @@
-= form_for [:admin, lot], :url => url do |f|
+= form_for [:admin, lot], :url => residential_form_url_for(lot) do |f|
   %p
     = f.label :title
     = f.text_field :title, :class => "input-xxlarge"
