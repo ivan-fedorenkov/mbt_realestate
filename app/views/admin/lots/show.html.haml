@@ -1,0 +1,14 @@
+.row
+  .span8
+    = render_lot(@lot)
+
+  .span2.offset2
+    .pull-right
+      %p
+        = link_to "Back to list", admin_residential_index_path, :class => 'btn span2'
+      %p
+        = link_to "Edit", [:edit, :admin, @lot], :class => 'btn span2'
+      %p
+        = link_to "Manage Pictures", [:admin, @lot, :pictures], :class => 'btn span2'
+      %p
+        = link_to "Delete", [:admin, @lot], :method => :delete, :confirm => "Are you sure?", :class => 'btn btn-danger span2'

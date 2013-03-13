@@ -1,3 +1,8 @@
+.row
+  .span12
+    .pull-right
+      = new_lot_button(params[:type])
+      
 .row{:class => 'admin-lots-table'}
   .span8
     %table#lots-list.table.table-bordered.table-striped
@@ -8,7 +13,7 @@
           %th Updated at
           %th Actions
       %tbody
-        - lots.each do |lot|
+        - @lots.each do |lot|
           %tr[lot]
             %td= link_to lot.title, [:admin, lot]
             %td= lot.created_at

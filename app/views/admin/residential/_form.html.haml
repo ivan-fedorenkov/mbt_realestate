@@ -1,4 +1,4 @@
-= form_for [:admin, @residential], :url => url do |f|
+= form_for [:admin, lot], :url => url do |f|
   %p
     = f.label :title
     = f.text_field :title, :class => "input-xxlarge"
@@ -21,7 +21,7 @@
   .row
     .span4
       = f.label :location, "Location"
-      = f.select :location, options_for_select(static_locations, @residential.location)
+      = f.select :location, options_for_select(static_locations, lot.location)
     .span2
       = f.label :latitude
       = f.text_field :latitude, :class => "input-mini"

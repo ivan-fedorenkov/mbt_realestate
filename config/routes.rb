@@ -9,21 +9,21 @@ MbtRealestate::Application.routes.draw do
   namespace :admin do
     root :to => 'base#index'
     resources :articles
-    resources :residential do
+    resources :residential, :controller => "lots", :type => "Residential" do
       resources :pictures do
         collection do
           delete :delete_all
         end
       end
     end
-    resources :plots do
+    resources :plots, :controller => "lots", :type => "Plot" do
       resources :pictures do
         collection do
           delete :delete_all
         end
       end
     end
-    resources :investments do
+    resources :investments, :controller => "lots", :type => "Investment" do
       resources :pictures do
         collection do
           delete :delete_all
