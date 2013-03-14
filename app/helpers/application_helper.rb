@@ -102,7 +102,7 @@ module ApplicationHelper
     }
 
     if Rails.env.production?
-      return code
+      return code.html_safe
     else
       return ""
     end
