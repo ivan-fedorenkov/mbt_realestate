@@ -68,6 +68,9 @@
   %p
     = f.label :additional_features
     = f.text_field :additional_features, :class => "input-xxlarge"
+
+  = f.label :description
+  = f.text_area :description, :class => "wysihtml5"
     
   %p
     = f.submit :class => "btn btn-primary"
