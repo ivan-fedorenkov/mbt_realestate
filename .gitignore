@@ -16,3 +16,6 @@
 
 
 /public/system
+
+# Ignoring rvmrc file
+.rvmrc
