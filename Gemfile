@@ -44,6 +44,8 @@ end
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.12.2'
+  # To use debugger
+  gem 'debugger'
 end
 
 # To use ActiveModel has_secure_password
@@ -58,8 +60,6 @@ end
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-gem 'debugger'
 
 gem 'jquery-rails'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
