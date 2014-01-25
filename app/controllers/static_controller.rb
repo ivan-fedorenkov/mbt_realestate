@@ -30,6 +30,8 @@ class StaticController < ApplicationController
   def larnaca
   end
   def tourist_industry
+    flash[:alert] = "Requested page is not available right now."
+    redirect_to root_path
   end
   def access_and_transport
   end
