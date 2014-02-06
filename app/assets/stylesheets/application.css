@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require bootstrap
- *= requre real_estate
+ *= require real_estate
  *= require jquery.aw-showcase/style
  *= require bootstrap-wysihtml5
  *= require_tree .

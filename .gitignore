@@ -19,3 +19,5 @@
 
 # Ignoring rvmrc file
 .rvmrc
+
+config/initializers/application_env.rb
