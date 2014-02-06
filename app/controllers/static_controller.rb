@@ -20,24 +20,40 @@ class StaticController < ApplicationController
   end
 
   def about_cyprus
+    flash[:alert] = "Requested page is not available right now."
+    redirect_to root_path
   end
   def investing_in_cyprus
+    flash[:alert] = "Requested page is not available right now."
+    redirect_to root_path
   end
   def strategic_location
+    flash[:alert] = "Requested page is not available right now."
+    redirect_to root_path
   end
   def economic_background
+    flash[:alert] = "Requested page is not available right now."
+    redirect_to root_path
   end
   def larnaca
+    flash[:alert] = "Requested page is not available right now."
+    redirect_to root_path
   end
   def tourist_industry
     flash[:alert] = "Requested page is not available right now."
     redirect_to root_path
   end
   def access_and_transport
+    flash[:alert] = "Requested page is not available right now."
+    redirect_to root_path
   end
   def proprty_market
+    flash[:alert] = "Requested page is not available right now."
+    redirect_to root_path
   end
   def massive_investment
+    flash[:alert] = "Requested page is not available right now."
+    redirect_to root_path
   end
   
 end
